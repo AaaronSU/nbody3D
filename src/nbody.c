@@ -3,14 +3,10 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.c"
 
 //
-typedef float f32;
-typedef double f64;
-typedef unsigned long long u64;
-
-//
-typedef struct particle_s
+typedef struct
 {
 
     f32 x, y, z;
@@ -87,19 +83,6 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
         p[i].y += dt * p[i].vy;
         p[i].z += dt * p[i].vz;
     }
-}
-
-//
-f64 compute_delta(f64 *p_ref, f64 *p, u64 n)
-{
-    f64 delta = 0.0;
-
-    for (u64 i = 0; i < n; i++)
-        delta += (p_ref[i] - p[i]);
-
-    delta /= (f64)n;
-
-    return delta;
 }
 
 //
