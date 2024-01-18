@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-01-02 Tue 13:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Analyse des performances et optimisation d'un noyau de simulation d'intéractions entre N-corps dans un espace 3D</title>
+<meta name="author" content="yaspr &amp; hugo" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Analyse des performances et optimisation d'un noyau de simulation d'intéractions entre N-corps dans un espace 3D</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0b571c5">1. Introduction aux simulations à N-corps</a></li>
+<li><a href="#orgd958a17">2. Travail à faire</a>
+<ul>
+<li><a href="#org1a83095">2.1. Analyse des performances</a>
+<ul>
+<li><a href="#org9868536">2.1.1. Stabilisation du système</a></li>
+<li><a href="#org090e932">2.1.2. Compilation</a></li>
+<li><a href="#org5cb6f1c">2.1.3. Profileurs</a></li>
+</ul>
+</li>
+<li><a href="#org037d884">2.2. Optimisation</a></li>
+</ul>
+</li>
+<li><a href="#org085d715">3. Rendu</a></li>
+<li><a href="#orgb52b335">4. Conseil</a></li>
+<li><a href="#org50c081c">5. Playlist</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0b571c5" class="outline-2">
+<h2 id="org0b571c5"><span class="section-number-2">1.</span> Introduction aux simulations à N-corps</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+En physique, une simulation à N-corps d'un système dynamique de particules
+consiste à simuler les intéractions des particules sous l'effet d'une ou plusieurs forces
+(gravité, magnétisme et électro-magnétisme, &#x2026;). Ce type de simulations est utilisé dans
+plusieurs domaines de la physique (cosmologie, astrophysique, semiconducteurs, dynamique des fluides, &#x2026;)
+afin d'étudier les comportements de systèmes complexes (planètes, étoiles, gases, &#x2026;).
+Par exemple, en cosmologie, ces simulations permettent d'étudier de façon détaillée les processus non-linéaires
+tels que la formation de galaxies ou l'évolution de clusters d'étoiles.  
+</p>
+
+<p>
+Pour ce projet, le code fournit implémente un noyau qui simule l'interaction Newtonienne de plusieurs particules
+qui s'influencent mutuellement dans un espace 3D en utilisant la loi gravitationnelle de Newton:
+</p>
+
+
+<div id="orgd9eb038" class="figure">
+<p><img src="./Newton_complete.png" alt="Newton_complete.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Équation de Newton permettant de calculer la force d'intéraction de deux particules <i>i</i> et <i>j</i></p>
+</div>
+
+<p>
+Dans cette équation, <i>m<sub>i</sub></i> et <i>m<sub>j</sub></i> représentent les masses respectives des particules <i>i</i> et <i>j</i>. <i>p<sub>i</sub></i> et <i>p<sub>j</sub></i>
+représentent leurs positions dans l'espace 3D de simulation. <i>G</i> repsésente la constante gravitationnelle.
+</p>
+
+<p>
+Afin de simplifier l'équation, nous considérons que: <i>G</i> = <i>m<sub>i</sub></i> = <i>m<sub>j</sub></i> = 1. Conséquemment, l'équation implémentée
+est la suivante:
+</p>
+
+
+<div id="org5999b60" class="figure">
+<p><img src="./Newton_simple.png" alt="Newton_simple.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Équation de Newton simplifiée</p>
+</div>
+
+<p>
+Pour plus d'informations sur la physique des simulations gravitationnelles à N-corps, vous pouvez vous référer à l'article suivant:
+<a href="./paper.pdf">Gravitational N-body simulations</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd958a17" class="outline-2">
+<h2 id="orgd958a17"><span class="section-number-2">2.</span> Travail à faire</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ce projet consiste à analyser et à optimiser les performances d'un code non optimal fournit en utilisant plusieurs compilateurs et
+en adaptant le code à l'architecture cible.
+</p>
+</div>
+
+<div id="outline-container-org1a83095" class="outline-3">
+<h3 id="org1a83095"><span class="section-number-3">2.1.</span> Analyse des performances</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Le code fournit effectue déjà une mesure des performances du noyau central en utilisant une primitive de chronométrage
+fournie par <b>OpenMP</b> (<a href="https://www.openmp.org/spec-html/5.0/openmpsu160.html"><i><code>omp_get_wtime()</code></i></a>) qui retourne le temps d'exécution en <b>secondes</b>.
+</p>
+
+<p>
+La figure ci-dessous présente la sortie du programme pour un nombre de particules <b>n = 1000</b>.
+</p>
+
+
+<div id="orgf7b27f6" class="figure">
+<p><img src="./Baseline.png" alt="Baseline.png" width="500px" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Exemple de la sortie du programme <b>nbody3D</b></p>
+</div>
+
+<p>
+Comme vous pouvez le constater, la mesure des performances se base sur 4 métriques:
+</p>
+<ul class="org-ul">
+<li><i><code>Time</code></i>: le temps d'éxécution du noyau en <b>secondes</b></li>
+<li><i><code>Interactions/s</code></i>: le nombre d'interactions traitées par seconde</li>
+<li><i><code>GFLOP/s</code></i>: le nombre d'opérations d'arithmétique flottante effectuées par seconde (appelée aussi <b>intensité arithmétique</b>)</li>
+<li><i><code>Average performance</code></i>: la performance moyenne (en <i><code>GFLOP/s</code></i>) du noyau sur <b>10</b> exécutions</li>
+</ul>
+
+<p>
+Ces métriques nous permettent d'évaluer le temps d'exécution ainsi que la quantité de <i>"travail"</i> effectuée durant une unité de
+temps (<b>1 seconde</b>). Afin de pouvoir évaluer la performance avec un haut degré de précision, le noyau est exécuté plusieurs
+fois (<b>13</b> exécutions) et sa performance est mesurée à chaque exécution. Les trois premières exécutions sont destinées à échauffer
+(warm up) le système et sont donc ignorées lors du calcul de la performance moyenne et de la déviation/erreur. Échauffer le
+système est crucial afin d'éviter de bruiter les mesures par les effets dus à la gestion dynamique de la fréquence et du voltage
+(DVFS - Dynamic Voltage and Frequency Scaling). <b>DVFS</b> est généralement utilisé afin de réduire la consommation énérgétique
+et économiser la batterie.
+</p>
+
+<p>
+Sur la figure ci-dessus, la performance mesurée est de <b>0.7 GFLOP/s</b> (ou <b>700 MFLOP/s</b>) et la déviation/erreur est égale
+à <b>0.0</b>. Une déviation/erreur nulle signifie que les mesures ont été effectuées dans un environnement stable et sans bruit. 
+</p>
+</div>
+
+<div id="outline-container-org9868536" class="outline-4">
+<h4 id="org9868536"><span class="section-number-4">2.1.1.</span> Stabilisation du système</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Afin de garantir une mesure des performances stable et valide, il vous faudra stabiliser votre système en suivant les
+recommendations suivante:
+</p>
+
+<ul class="org-ul">
+<li><b>1.</b> Si vous effectuez vos mesures sur un laptop, veillez à ce qu'il soit branché au secteur. Les batteries ne fournissent
+pas assez de puissance (Watts) pour que le CPU puisse atteindre sa fréquence maximale</li>
+<li><b>2.</b> La fréquence du CPU doit être fixe et configurée à sa valeur maximale</li>
+<li><b>3.</b> Aucun autre programme (navigateur, &#x2026;) ne doit partager le système lors des mesures. Si possible, désactivez le réseau
+ainsi que l'interface graphique</li>
+<li><b>4.</b> Le programme doit être alloué sur un seul coeur de calcul afin d'éviter le bruit causé par la migration des processus.
+Le coeur <b>n° 0</b> du CPU est à éviter car il est utilisé par défaut pour exécuter l'OS</li>
+<li><b>5.</b> Effectuer la mesure des performances sur un système Linux natif. Toute mesure sur un système virtuel est considérée comme
+invalide car la virtualisation est de par sa nature considérée comme du bruit (point <b>4</b>).</li>
+</ul>
+</div>
+
+<ol class="org-ol">
+<li><a id="org460d2e0"></a><b>Comment fixer la fréquence du CPU sous Linux?</b><br />
+<div class="outline-text-5" id="text-2-1-1-1">
+<p>
+Avant de fixer la fréquence du CPU, il vous faudra vérifier quels sont les <i>frequency governors</i> présents sur votre système Linux en
+utilisant la commande suivante:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">
+$ sudo cpupower -c all frequency-info
+
+    analyzing CPU 0:
+      driver: intel_pstate
+      CPUs which run at the same hardware frequency: 0
+      CPUs which need to have their frequency coordinated by software: 0
+      maximum transition latency:  Cannot determine or is not supported.
+      hardware limits: 800 MHz - 3.80 GHz
+      available cpufreq governors: performance powersave
+      current policy: frequency should be within 800 MHz and 3.80 GHz.
+                      The governor <span style="color: #deb887;">"powersave"</span> may decide which speed to use
+                      within this range.
+      current CPU frequency: Unable to call hardware
+      current CPU frequency: 1.20 GHz (asserted by call to kernel)
+      boost state support:
+        Supported: yes
+        Active: yes
+   analyzing CPU 1:
+     driver: intel_pstate
+     CPUs which run at the same hardware frequency: 1
+     CPUs which need to have their frequency coordinated by software: 1
+     maximum transition latency:  Cannot determine or is not supported.
+     hardware limits: 800 MHz - 3.80 GHz
+     available cpufreq governors: performance powersave
+     current policy: frequency should be within 800 MHz and 3.80 GHz.
+                     The governor <span style="color: #deb887;">"powersave"</span> may decide which speed to use
+                     within this range.
+     current CPU frequency: Unable to call hardware
+     current CPU frequency: 1.25 GHz (asserted by call to kernel)
+     boost state support:
+       Supported: yes
+       Active: yes
+   analyzing CPU 2:
+     driver: intel_pstate
+     CPUs which run at the same hardware frequency: 2
+     CPUs which need to have their frequency coordinated by software: 2
+     maximum transition latency:  Cannot determine or is not supported.
+     hardware limits: 800 MHz - 3.80 GHz
+     available cpufreq governors: performance powersave
+     current policy: frequency should be within 800 MHz and 3.80 GHz.
+                     The governor <span style="color: #deb887;">"powersave"</span> may decide which speed to use
+                     within this range.
+     current CPU frequency: Unable to call hardware
+     current CPU frequency: 1.20 GHz (asserted by call to kernel)
+     boost state support:
+       Supported: yes
+       Active: yes
+   analyzing CPU 3:
+     driver: intel_pstate
+     CPUs which run at the same hardware frequency: 3
+     CPUs which need to have their frequency coordinated by software: 3
+     maximum transition latency:  Cannot determine or is not supported.
+     hardware limits: 800 MHz - 3.80 GHz
+     available cpufreq governors: performance powersave
+     current policy: frequency should be within 800 MHz and 3.80 GHz.
+                     The governor <span style="color: #deb887;">"powersave"</span> may decide which speed to use
+                     within this range.
+     current CPU frequency: Unable to call hardware
+     current CPU frequency: 1.20 GHz (asserted by call to kernel)
+     boost state support:
+       Supported: yes
+       Active: yes
+
+</pre>
+</div>
+
+<p>
+Comme vous pouvez le constater sur la sortie de la commande, deux <i>governors</i> sont disponibles: <b><i>performance</i></b> et <b><i>powersave</i></b>.
+Nous pouvons aussi observer que tous les coeurs du CPU sont configurés en mode <b><i>powersave</i></b>.
+En fonction du driver de votre CPU (<b><code>intel_pstate</code></b>, <b><code>acpi_cpufreq</code></b>, &#x2026;), il est possible que votre système présente plusieurs
+autres <i>governors</i> (<b><i>schedutil</i></b>, <b><i>userspace</i></b>, &#x2026;).
+</p>
+
+<p>
+Pour configurer les coeurs en mode <b><i>performance</i></b>, vous devez utiliser la commande suivante:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">
+$ sudo cpupower -c all frequency-set -g performance
+
+</pre>
+</div>
+
+<p>
+Vous pouvez, bien sûr, ciblé un coeur en particulier en spécifiant sont identifiant à la place de <b><i>all</i></b>. Par exemple, la commande
+suivante permet de modifier le <b><i>governor</i></b> du coeur <b>n °2</b> indépendamment des autres coeurs:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">
+$ sudo cpupower -c 2 frequency-set -g performance
+
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgfad09c8"></a><b>Comment allouer un processus sur un coeur du CPU?</b><br />
+<div class="outline-text-5" id="text-2-1-1-2">
+<p>
+Afin d'éviter de bruiter les mesures par la migration de processus implémentée par l'OS pour améliorer la gestion des ressources CPU, il faut
+signaler à l'OS que le programme <b>nbody3D</b> doit s'exécuter sur un coeur désigné. Cette technique est généralement nommée: <b><i>thread/process core pinning</i></b>.
+Pour <b><i>pin</i></b> le programme <b>nbody3D</b> sur un coeur de calcul (i.e. le coeur <b>n° 3</b>) vous pouvez utiliser la commande suivante:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">
+$ taskset -c 3 ./nbody3D
+
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org090e932" class="outline-4">
+<h4 id="org090e932"><span class="section-number-4">2.1.2.</span> Compilation</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Afin d'explorer et maximiser les possibilités en terme de performance, il vous faudra compiler chaque version du code avec <b>GCC</b> et <b>LLVM CLANG</b>, puis
+comparer leurs performances côte à côte.
+<b>GCC</b> et <b>LLVM CLANG</b> s'installent facilement sur tous les systèmes Linux et sont compatibles au niveau de leurs interfaces. Cependant, il est toutefois
+recommandé de se référer à la documentation (<b>man gcc</b> et <b>man clang</b>). Le diable est dans le détail!!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5cb6f1c" class="outline-4">
+<h4 id="org5cb6f1c"><span class="section-number-4">2.1.3.</span> Profileurs</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Il est possible d'utiliser des profileurs de performance tels: <b>Intel VTune</b>, <b>AMD µProf</b>, <b>Linux perf</b> ou <b>MAQAO</b>. Dans ce cas, il faudra fournir
+les données brutes ainsi que des explications relatives aux métriques retournées par ses outils et à leur stabilité. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org037d884" class="outline-3">
+<h3 id="org037d884"><span class="section-number-3">2.2.</span> Optimisation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Les optimisations peuvent être appliquées à deux niveaux:
+</p>
+
+<ul class="org-ul">
+<li><p>
+<b><span class="underline">Compilation</span></b>
+</p>
+
+<p>
+<b>GCC</b> et <b>LLVM CLANG</b> proposent plusieurs options pour piloter les optimisations et générer du code machine adapté à l'architecture cible.
+Les niveaux d'optimisation que vous devrez tester sont les suivants: <b>-O2</b>, <b>-O3</b> et <b>-Ofast</b>. Plus d'informations sont disponibles ici:
+<a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html</a>.
+Chaque niveau d'optimisation implémente un ensemble de transformations destinées à produire du code machine performant. Cependant, le flag
+d'optimisation <b>-Ofast</b> peut sacrifier la stabilité numérique des calculs au profit d'une meilleure performance en appliquant des transformations
+sur l'ordre des opérations d'arithmétique flottante. Il vous faudra donc fournir une analyse de la stabilité numérique en modifiant le code original
+ afin de générer un fichier comportant les valeurs des positions des particules après la fin de la simulation.
+Il faudra utiliser la sortie de la version de base du code comme référence numérique. Afin de calculer la distance entre la sortie de référence
+et celles des différentes versions optmisées du code, vous pouvez utiliser l'algorithme décrit plus bas: 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #98f5ff;">f64</span> <span style="color: #daa520;">compute_delta</span>(<span style="color: #98f5ff;">f64</span> *<span style="color: #4eee94;">p_ref</span>, <span style="color: #98f5ff;">f64</span> *<span style="color: #4eee94;">p</span>, <span style="color: #98f5ff;">u64</span> <span style="color: #4eee94;">n</span>)
+  { 
+    <span style="color: #98f5ff;">f64</span> <span style="color: #4eee94;">delta</span> = 0.0;
+
+    <span style="color: #00bfff;">for</span> (<span style="color: #98f5ff;">u64</span> <span style="color: #4eee94;">i</span> = 0; i &lt; n; i++)
+      delta += (p_ref[i] - p[i]);
+
+    delta /= (<span style="color: #98f5ff;">f64</span>)n;
+
+    <span style="color: #00bfff;">return</span> delta;
+  }
+</pre>
+</div>
+
+<p>
+Afin d'assurer que les optimisations des compilateurs sont adaptées à l'architecture cible, vous pouvez utiliser les flag <b>-march=</b> <b><i><code>TARGET_ARCH</code></i></b>
+en spécifiant l'architecture cible. Vous trouverez les identifiants des architectures et plus ici:  <a href="https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html">https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html</a>.
+Il est aussi possible de faire détecter l'architecture par le compilateur en utilisant le flag: <b>-march=native</b>.
+</p>
+
+<p>
+Pour chaque version et chaque compilateur, il faudra fournir une brève analyse du code assembleur du noyau de simulation. Cette analyse devra évaluer
+la qualité du code généré par rapport à la vectorisation, le déroulage, &#x2026;
+Certains outils comme <b>MAQAO CQA</b> ou <b>llvm-mca</b> fournissent des analyses détaillées des codes assembleurs par rapport à une de l'architecture cible.
+</p></li>
+
+<li><p>
+<b><span class="underline">Code source</span></b>
+</p>
+
+<p>
+Le code fournit n'étant pas optimal, plusieurs transformations devront être appliquées au niveau du code source. Par exemple:
+</p>
+
+<ul class="org-ul">
+<li>élimination/remplacement des opérations les plus coûteuses: divisions, racines carrées, puissances, &#x2026;</li>
+<li>restructuration des structures de données afin de bénéficier d'accès mémoire linéaires et alignés et favoriser la vectorisation automatique
+par les compilateurs</li>
+<li>déroulage et blocking manuel</li>
+<li>usage de librairies externes (<b>Intel MKL</b>, <b>AMD BLIS</b>, &#x2026;)</li>
+<li>changement d'algorithme: Barnes-Hut, FFM (Fast Multipole Method)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org085d715" class="outline-2">
+<h2 id="org085d715"><span class="section-number-2">3.</span> Rendu</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Il vous faudra fournir une archive nommée comme suit <b><code>NOM_PRENOM_iatic4_proj.tar.gz</code></b> contenant:
+</p>
+
+<ul class="org-ul">
+<li><p>
+les informations (un fichier <b>cpu.info</b>) sur l'architecture sur laquelle vous avez efféctué vos expériences. Vous pouvez obtenir les
+informations sur votre système en utilisant les commandes suivantes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">
+$ cat /proc/cpuinfo &gt; cpu.info
+
+ou
+
+$ lscpu &gt; cpu.info
+
+</pre>
+</div></li>
+
+<li><p>
+les informations sur la hiérarchie des caches de données de votre système (fichiers: <b>L?.info</b>):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Cache L1 </span>
+$ cat /sys/devices/system/cpu/cpu0/cache/index0/* &gt; L1.info
+
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Cache L2</span>
+$ cat /sys/devices/system/cpu/cpu0/cache/index2/* &gt; L2.info
+
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Cache L3 </span>
+$ cat /sys/devices/system/cpu/cpu0/cache/index3/* &gt; L3.info
+
+</pre>
+</div></li>
+
+<li>le code source de toutes les versions du code</li>
+<li>les données brutes des mesures de performance</li>
+<li>un rapport au format <b>PDF</b> structuré comme suit (avec une <b>Section ?</b> par expérience):
+<ul class="org-ul">
+<li><b>Introduction</b>: introduction du projet, ses objectifs et la structure du rapport</li>
+<li><b>Environnement</b>: présentation de l'architecture cible, des compilateurs et leurs versions, &#x2026;</li>
+<li><b>Section ?</b>: section introduisant une expérience
+<ul class="org-ul">
+<li><b>Introduction</b>: l'objectif de l'expérience et ses paramètres (flags de compilation, transformation du code, &#x2026;)</li>
+<li><b>Résultats</b>: présentation et commentaire des résultats (tableau, graphique, &#x2026;) de l'expérience.</li>
+<li><b>Conclusion</b>: résumer des résultats obtenus et conclusion par rapport au résultats de l'expérience</li>
+</ul></li>
+<li><b>Comparaison</b>: section comparant (tableaux et graphiques de comparaison) les performances des différentes versions du
+code avec différents flags et différents compilateurs.</li>
+<li><b>Conclusion</b>: expliquer brièvement le travail effectué et conclure par rapport à la version la plus optimale</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb52b335" class="outline-2">
+<h2 id="orgb52b335"><span class="section-number-2">4.</span> Conseil</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+In doubt, STFU and RTFM :]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org50c081c" class="outline-2">
+<h2 id="org50c081c"><span class="section-number-2">5.</span> Playlist</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>FREAK KITCHEN - Morons</li>
+<li>PERIPHERY - Absolomb (the ending is EPIC!)</li>
+<li>PERIPHERY - Lune</li>
+<li>ANIMALS AS LEADERS - Red Miso</li>
+<li>ANIMALS AS LEADERS - Ka$casde</li>
+<li>RAMIN DJAWADI - Bicameral Mind</li>
+<li>FREAK KITCHEN - Freak of the week</li>
+<li>ANNIHILATOR - Torn</li>
+<li>ANNIHILATOR - Shallow grave</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: yaspr &amp; hugo</p>
+<p class="date">Created: 2024-01-02 Tue 13:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
