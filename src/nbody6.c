@@ -63,7 +63,7 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
     const f32 softening = 1e-20;
 
 // For all particles
-#pragma omp parallel for
+#pragma omp parallel for simd
     for (u64 i = 0; i < n; i++)
     {
         //
@@ -75,7 +75,6 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
         f32 y_i = p->y[i];
         f32 z_i = p->z[i];
 
-#pragma omp parallel for
         // Newton's law: 17 FLOPs (Floating-Point Operations) per iteration
         for (u64 j = 0; j < n; j++)
         {
@@ -102,7 +101,7 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
         p->vz[i] += dt * fz; // 23 (mul, add)
     }
     // Update positions: 6 FLOPs
-#pragma omp parallel for
+#pragma omp parallel for simd
     for (u64 i = 0; i < n; i++)
     {
         p->x[i] += dt * p->vx[i];

@@ -12,7 +12,7 @@ all: nbody3D
 	# taskset -c $(NP) ./bin/nbody2
 	# taskset -c $(NP) ./bin/nbody3
 	# taskset -c $(NP) ./bin/nbody4
-	./bin/nbody5
+	# ./bin/nbody5
 	./bin/nbody6
 
 nbody3D: nbody.c nbody2.c nbody3.c nbody4.c nbody5.c nbody6.c
