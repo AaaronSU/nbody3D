@@ -56,6 +56,23 @@ void delete_particule_table(particle_t *p)
     free(p->vz);
 }
 
+// Fast Inverse Square Root Algorithm From Wikipedia (Verified before by programmer)
+f32 q_rsqrt(f32 number)
+{
+    long i;
+    f32 x2, y;
+    const f32 threehalfs = 1.5F;
+
+    x2 = number * 0.5F;
+    y = number;
+    i = *(long *)&y;           // evil floating point bit level hacking
+    i = 0x5f3759df - (i >> 1); // what the fuck?
+    y = *(f32 *)&i;
+    y = y * (threehalfs - (x2 * y * y)); // 1st iteration
+    // y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+    return y;
+}
 //
 void move_particles(particle_t *p, const f32 dt, u64 n)
 {
@@ -74,7 +91,7 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
         f32 x_i = p->x[i];
         f32 y_i = p->y[i];
         f32 z_i = p->z[i];
-
+#pragma simd
         // Newton's law: 17 FLOPs (Floating-Point Operations) per iteration
         for (u64 j = 0; j < n; j++)
         {
@@ -90,9 +107,12 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
             const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
 
             // Calculate net force: 6 FLOPs
-            fx += dx * d_3_over_2; // 13 (add, div)
-            fy += dy * d_3_over_2; // 15 (add, div)
-            fz += dz * d_3_over_2; // 17 (add, div)
+            fmaf(dx, d_3_over_2, fx);
+            fmaf(dy, d_3_over_2, fy);
+            fmaf(dz, d_3_over_2, fz);
+            // fx += dx * d_3_over_2; // 13 (add, div)
+            // fy += dy * d_3_over_2; // 15 (add, div)
+            // fz += dz * d_3_over_2; // 17 (add, div)
         }
 
         // Update particle velocities using the previously computed net force: 6 FLOPs
@@ -144,6 +164,15 @@ int main(int argc, char **argv)
     printf("\033[1m%5s %10s %10s %8s\033[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s");
     fflush(stdout);
 
+    // Number of interactions/iteration
+    const f32 h1 = (f32)(n) * (f32)(n);
+
+    // Number of GFLOPs
+    // Innermost loop (Newton's law)   : 17 FLOPs x n (innermost trip count) x n (outermost trip count)
+    // Velocity update (outermost body):  6 FLOPs x n (outermost trip count)
+    // Positions update                :  6 FLOPs x n
+    const f32 h2 = (17.0 * h1 + 6.0 * (f32)n + 6.0 * (f32)n) * 1e-9;
+
     //
     for (u64 i = 0; i < steps; i++)
     {
@@ -151,15 +180,6 @@ int main(int argc, char **argv)
         const f64 start = omp_get_wtime();
         move_particles(&p, dt, n);
         const f64 end = omp_get_wtime();
-
-        // Number of interactions/iteration
-        const f32 h1 = (f32)(n) * (f32)(n);
-
-        // Number of GFLOPs
-        // Innermost loop (Newton's law)   : 17 FLOPs x n (innermost trip count) x n (outermost trip count)
-        // Velocity update (outermost body):  6 FLOPs x n (outermost trip count)
-        // Positions update                :  6 FLOPs x n
-        const f32 h2 = (17.0 * h1 + 6.0 * (f32)n + 6.0 * (f32)n) * 1e-9;
 
         // Do not take warm up runs into account
         if (i >= warmup)

@@ -178,9 +178,12 @@ void move_particles(particle_t *p, const f32 dt, u64 n)
             const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
 
             // Calculate net force: 6 FLOPs
-            fx += dx * d_3_over_2; // 13 (add, div)
-            fy += dy * d_3_over_2; // 15 (add, div)
-            fz += dz * d_3_over_2; // 17 (add, div)
+            fmaf(dx, d_3_over_2, fx);
+            fmaf(dy, d_3_over_2, fy);
+            fmaf(dz, d_3_over_2, fz);
+            // fx += dx * d_3_over_2; // 13 (add, div)
+            // fy += dy * d_3_over_2; // 15 (add, div)
+            // fz += dz * d_3_over_2; // 17 (add, div)
         }
 
         // Update particle velocities using the previously computed net force: 6 FLOPs
