@@ -297,6 +297,7 @@ int main(int argc, char **argv)
 
         fflush(stdout);
     }
+    rate_ref /= (f64)(steps - warmup);
 
     delta d = compute_delta(&p_ref, &p, n);
     speed_up = rate / rate_ref;
