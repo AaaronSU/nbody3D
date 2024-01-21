@@ -5,7 +5,7 @@ NP=3
 
 CFLAGS=-march=native -g3
 # -fopt-info-all=nbody.gcc.optrpt
-OFLAGS=-O1 -fopenmp -funroll-loops
+OFLAGS=-O3 -fopenmp -funroll-loops
 
 all: nbody3D
 	# taskset -c $(NP) ./bin/nbody

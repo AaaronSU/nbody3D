@@ -1,0 +1,1549 @@
+
+./bin/nbody6:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    $0x8,%rsp
+    1008:	48 8b 05 d9 3f 00 00 	mov    0x3fd9(%rip),%rax        # 4fe8 <__gmon_start__>
+    100f:	48 85 c0             	test   %rax,%rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   *%rax
+    1016:	48 83 c4 08          	add    $0x8,%rsp
+    101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 3a 3f 00 00    	push   0x3f3a(%rip)        # 4f60 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	f2 ff 25 3b 3f 00 00 	bnd jmp *0x3f3b(%rip)        # 4f68 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102d:	0f 1f 00             	nopl   (%rax)
+    1030:	f3 0f 1e fa          	endbr64
+    1034:	68 00 00 00 00       	push   $0x0
+    1039:	f2 e9 e1 ff ff ff    	bnd jmp 1020 <.plt>
+    103f:	90                   	nop
+    1040:	f3 0f 1e fa          	endbr64
+    1044:	68 01 00 00 00       	push   $0x1
+    1049:	f2 e9 d1 ff ff ff    	bnd jmp 1020 <.plt>
+    104f:	90                   	nop
+    1050:	f3 0f 1e fa          	endbr64
+    1054:	68 02 00 00 00       	push   $0x2
+    1059:	f2 e9 c1 ff ff ff    	bnd jmp 1020 <.plt>
+    105f:	90                   	nop
+    1060:	f3 0f 1e fa          	endbr64
+    1064:	68 03 00 00 00       	push   $0x3
+    1069:	f2 e9 b1 ff ff ff    	bnd jmp 1020 <.plt>
+    106f:	90                   	nop
+    1070:	f3 0f 1e fa          	endbr64
+    1074:	68 04 00 00 00       	push   $0x4
+    1079:	f2 e9 a1 ff ff ff    	bnd jmp 1020 <.plt>
+    107f:	90                   	nop
+    1080:	f3 0f 1e fa          	endbr64
+    1084:	68 05 00 00 00       	push   $0x5
+    1089:	f2 e9 91 ff ff ff    	bnd jmp 1020 <.plt>
+    108f:	90                   	nop
+    1090:	f3 0f 1e fa          	endbr64
+    1094:	68 06 00 00 00       	push   $0x6
+    1099:	f2 e9 81 ff ff ff    	bnd jmp 1020 <.plt>
+    109f:	90                   	nop
+    10a0:	f3 0f 1e fa          	endbr64
+    10a4:	68 07 00 00 00       	push   $0x7
+    10a9:	f2 e9 71 ff ff ff    	bnd jmp 1020 <.plt>
+    10af:	90                   	nop
+    10b0:	f3 0f 1e fa          	endbr64
+    10b4:	68 08 00 00 00       	push   $0x8
+    10b9:	f2 e9 61 ff ff ff    	bnd jmp 1020 <.plt>
+    10bf:	90                   	nop
+    10c0:	f3 0f 1e fa          	endbr64
+    10c4:	68 09 00 00 00       	push   $0x9
+    10c9:	f2 e9 51 ff ff ff    	bnd jmp 1020 <.plt>
+    10cf:	90                   	nop
+    10d0:	f3 0f 1e fa          	endbr64
+    10d4:	68 0a 00 00 00       	push   $0xa
+    10d9:	f2 e9 41 ff ff ff    	bnd jmp 1020 <.plt>
+    10df:	90                   	nop
+    10e0:	f3 0f 1e fa          	endbr64
+    10e4:	68 0b 00 00 00       	push   $0xb
+    10e9:	f2 e9 31 ff ff ff    	bnd jmp 1020 <.plt>
+    10ef:	90                   	nop
+    10f0:	f3 0f 1e fa          	endbr64
+    10f4:	68 0c 00 00 00       	push   $0xc
+    10f9:	f2 e9 21 ff ff ff    	bnd jmp 1020 <.plt>
+    10ff:	90                   	nop
+
+Disassembly of section .plt.got:
+
+0000000000001100 <__cxa_finalize@plt>:
+    1100:	f3 0f 1e fa          	endbr64
+    1104:	f2 ff 25 ed 3e 00 00 	bnd jmp *0x3eed(%rip)        # 4ff8 <__cxa_finalize@GLIBC_2.2.5>
+    110b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+Disassembly of section .plt.sec:
+
+0000000000001110 <free@plt>:
+    1110:	f3 0f 1e fa          	endbr64
+    1114:	f2 ff 25 55 3e 00 00 	bnd jmp *0x3e55(%rip)        # 4f70 <free@GLIBC_2.2.5>
+    111b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001120 <puts@plt>:
+    1120:	f3 0f 1e fa          	endbr64
+    1124:	f2 ff 25 4d 3e 00 00 	bnd jmp *0x3e4d(%rip)        # 4f78 <puts@GLIBC_2.2.5>
+    112b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001130 <omp_get_wtime@plt>:
+    1130:	f3 0f 1e fa          	endbr64
+    1134:	f2 ff 25 45 3e 00 00 	bnd jmp *0x3e45(%rip)        # 4f80 <omp_get_wtime@OMP_2.0>
+    113b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001140 <omp_get_thread_num@plt>:
+    1140:	f3 0f 1e fa          	endbr64
+    1144:	f2 ff 25 3d 3e 00 00 	bnd jmp *0x3e3d(%rip)        # 4f88 <omp_get_thread_num@OMP_1.0>
+    114b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001150 <__stack_chk_fail@plt>:
+    1150:	f3 0f 1e fa          	endbr64
+    1154:	f2 ff 25 35 3e 00 00 	bnd jmp *0x3e35(%rip)        # 4f90 <__stack_chk_fail@GLIBC_2.4>
+    115b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001160 <omp_get_num_threads@plt>:
+    1160:	f3 0f 1e fa          	endbr64
+    1164:	f2 ff 25 2d 3e 00 00 	bnd jmp *0x3e2d(%rip)        # 4f98 <omp_get_num_threads@OMP_1.0>
+    116b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001170 <strtoll@plt>:
+    1170:	f3 0f 1e fa          	endbr64
+    1174:	f2 ff 25 25 3e 00 00 	bnd jmp *0x3e25(%rip)        # 4fa0 <strtoll@GLIBC_2.2.5>
+    117b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001180 <malloc@plt>:
+    1180:	f3 0f 1e fa          	endbr64
+    1184:	f2 ff 25 1d 3e 00 00 	bnd jmp *0x3e1d(%rip)        # 4fa8 <malloc@GLIBC_2.2.5>
+    118b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001190 <fflush@plt>:
+    1190:	f3 0f 1e fa          	endbr64
+    1194:	f2 ff 25 15 3e 00 00 	bnd jmp *0x3e15(%rip)        # 4fb0 <fflush@GLIBC_2.2.5>
+    119b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000000000011a0 <__printf_chk@plt>:
+    11a0:	f3 0f 1e fa          	endbr64
+    11a4:	f2 ff 25 0d 3e 00 00 	bnd jmp *0x3e0d(%rip)        # 4fb8 <__printf_chk@GLIBC_2.3.4>
+    11ab:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000000000011b0 <sqrt@plt>:
+    11b0:	f3 0f 1e fa          	endbr64
+    11b4:	f2 ff 25 05 3e 00 00 	bnd jmp *0x3e05(%rip)        # 4fc0 <sqrt@GLIBC_2.2.5>
+    11bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000000000011c0 <GOMP_parallel@plt>:
+    11c0:	f3 0f 1e fa          	endbr64
+    11c4:	f2 ff 25 fd 3d 00 00 	bnd jmp *0x3dfd(%rip)        # 4fc8 <GOMP_parallel@GOMP_4.0>
+    11cb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000000000011d0 <rand@plt>:
+    11d0:	f3 0f 1e fa          	endbr64
+    11d4:	f2 ff 25 f5 3d 00 00 	bnd jmp *0x3df5(%rip)        # 4fd0 <rand@GLIBC_2.2.5>
+    11db:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+Disassembly of section .text:
+
+00000000000011e0 <main>:
+    }
+}
+
+//
+int main(int argc, char **argv)
+{
+    11e0:	f3 0f 1e fa          	endbr64
+    11e4:	41 56                	push   %r14
+    11e6:	41 55                	push   %r13
+    11e8:	41 54                	push   %r12
+    11ea:	55                   	push   %rbp
+    11eb:	bd 00 40 00 00       	mov    $0x4000,%ebp
+    11f0:	53                   	push   %rbx
+    11f1:	48 83 c4 80          	add    $0xffffffffffffff80,%rsp
+    11f5:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    11fc:	00 00 
+    11fe:	48 89 44 24 78       	mov    %rax,0x78(%rsp)
+    1203:	31 c0                	xor    %eax,%eax
+    // Number of particles to simulate
+    const u64 n = (argc > 1) ? atoll(argv[1]) : 16384;
+    1205:	83 ff 01             	cmp    $0x1,%edi
+    1208:	7e 13                	jle    121d <main+0x3d>
+extern unsigned long int __REDIRECT_NTH (strtoul_l,
+					 (const char *__restrict __nptr,
+					  char **__restrict __endptr,
+					  int __base, locale_t __loc),
+					 __isoc23_strtoul_l)
+     __nonnull ((1, 4));
+    120a:	48 8b 7e 08          	mov    0x8(%rsi),%rdi
+    120e:	ba 0a 00 00 00       	mov    $0xa,%edx
+    1213:	31 f6                	xor    %esi,%esi
+    1215:	e8 56 ff ff ff       	call   1170 <strtoll@plt>
+    121a:	48 89 c5             	mov    %rax,%rbp
+
+    //
+    particle_t p;
+
+    //
+    init(&p, n);
+    121d:	4c 8d 64 24 40       	lea    0x40(%rsp),%r12
+    1222:	48 89 ee             	mov    %rbp,%rsi
+        const f64 start = omp_get_wtime();
+        move_particles(&p, dt, n);
+        const f64 end = omp_get_wtime();
+
+        // Number of interactions/iteration
+        const f32 h1 = (f32)(n) * (f32)(n);
+    1225:	49 89 ee             	mov    %rbp,%r14
+    init(&p, n);
+    1228:	4c 89 e7             	mov    %r12,%rdi
+    fflush(stdout);
+    122b:	31 db                	xor    %ebx,%ebx
+        const f32 h1 = (f32)(n) * (f32)(n);
+    122d:	41 83 e6 01          	and    $0x1,%r14d
+    init(&p, n);
+    1231:	e8 fa 0d 00 00       	call   2030 <init>
+    const u64 s = sizeof(f32) * n;
+    1236:	48 8d 14 ad 00 00 00 	lea    0x0(,%rbp,4),%rdx
+    123d:	00 
+    123e:	bf 01 00 00 00       	mov    $0x1,%edi
+    1243:	31 c0                	xor    %eax,%eax
+    1245:	48 8d 35 bc 1d 00 00 	lea    0x1dbc(%rip),%rsi        # 3008 <_IO_stdin_used+0x8>
+    printf("\n\033[1mTotal memory size:\033[0m %llu B, %llu KiB, %llu MiB\n\n", s, s >> 10, s >> 20);
+    124c:	48 89 d1             	mov    %rdx,%rcx
+    124f:	49 89 d0             	mov    %rdx,%r8
+    1252:	48 c1 e9 0a          	shr    $0xa,%rcx
+    1256:	49 c1 e8 14          	shr    $0x14,%r8
+    125a:	e8 41 ff ff ff       	call   11a0 <__printf_chk@plt>
+    125f:	4c 8d 0d 48 1e 00 00 	lea    0x1e48(%rip),%r9        # 30ae <_IO_stdin_used+0xae>
+    1266:	31 c0                	xor    %eax,%eax
+    1268:	bf 01 00 00 00       	mov    $0x1,%edi
+    126d:	4c 8d 05 42 1e 00 00 	lea    0x1e42(%rip),%r8        # 30b6 <_IO_stdin_used+0xb6>
+    1274:	48 8d 0d 46 1e 00 00 	lea    0x1e46(%rip),%rcx        # 30c1 <_IO_stdin_used+0xc1>
+    127b:	48 8d 15 47 1e 00 00 	lea    0x1e47(%rip),%rdx        # 30c9 <_IO_stdin_used+0xc9>
+    1282:	48 8d 35 45 1e 00 00 	lea    0x1e45(%rip),%rsi        # 30ce <_IO_stdin_used+0xce>
+    1289:	e8 12 ff ff ff       	call   11a0 <__printf_chk@plt>
+    fflush(stdout);
+    128e:	48 8b 3d 7b 3d 00 00 	mov    0x3d7b(%rip),%rdi        # 5010 <stdout@GLIBC_2.2.5>
+    1295:	4c 8d 6c 24 20       	lea    0x20(%rsp),%r13
+    129a:	e8 f1 fe ff ff       	call   1190 <fflush@plt>
+    f64 rate = 0.0, drate = 0.0;
+    129f:	48 c7 44 24 18 00 00 	movq   $0x0,0x18(%rsp)
+    12a6:	00 00 
+    12a8:	48 c7 44 24 10 00 00 	movq   $0x0,0x10(%rsp)
+    12af:	00 00 
+    12b1:	e9 d5 00 00 00       	jmp    138b <main+0x1ab>
+    12b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    12bd:	00 00 00 
+        const f32 h1 = (f32)(n) * (f32)(n);
+    12c0:	c5 c0 57 ff          	vxorps %xmm7,%xmm7,%xmm7
+    12c4:	c4 e1 c2 2a dd       	vcvtsi2ss %rbp,%xmm7,%xmm3
+    12c9:	c5 e2 59 e3          	vmulss %xmm3,%xmm3,%xmm4
+
+        // Number of GFLOPs
+        // Innermost loop (Newton's law)   : 17 FLOPs x n (innermost trip count) x n (outermost trip count)
+        // Velocity update (outermost body):  6 FLOPs x n (outermost trip count)
+        // Positions update                :  6 FLOPs x n
+        const f32 h2 = (17.0 * h1 + 6.0 * (f32)n + 6.0 * (f32)n) * 1e-9;
+    12cd:	c5 e2 5a eb          	vcvtss2sd %xmm3,%xmm3,%xmm5
+
+        // Do not take warm up runs into account
+        if (i >= warmup)
+        {
+            rate += h2 / (f32)(end - start);
+    12d1:	c5 fb 5c 44 24 08    	vsubsd 0x8(%rsp),%xmm0,%xmm0
+        const f32 h2 = (17.0 * h1 + 6.0 * (f32)n + 6.0 * (f32)n) * 1e-9;
+    12d7:	c5 d3 59 35 81 1e 00 	vmulsd 0x1e81(%rip),%xmm5,%xmm6        # 3160 <_IO_stdin_used+0x160>
+    12de:	00 
+    12df:	c5 5a 5a c4          	vcvtss2sd %xmm4,%xmm4,%xmm8
+    12e3:	c5 3b 59 0d 7d 1e 00 	vmulsd 0x1e7d(%rip),%xmm8,%xmm9        # 3168 <_IO_stdin_used+0x168>
+    12ea:	00 
+    12eb:	c5 33 58 d6          	vaddsd %xmm6,%xmm9,%xmm10
+    12ef:	c5 2b 58 de          	vaddsd %xmm6,%xmm10,%xmm11
+    12f3:	c5 23 59 25 75 1e 00 	vmulsd 0x1e75(%rip),%xmm11,%xmm12        # 3170 <_IO_stdin_used+0x170>
+    12fa:	00 
+    12fb:	c4 41 1b 5a ec       	vcvtsd2ss %xmm12,%xmm12,%xmm13
+        if (i >= warmup)
+    1300:	48 83 fb 02          	cmp    $0x2,%rbx
+    1304:	0f 86 06 01 00 00    	jbe    1410 <main+0x230>
+            rate += h2 / (f32)(end - start);
+    130a:	c5 7b 5a f8          	vcvtsd2ss %xmm0,%xmm0,%xmm15
+    130e:	c4 c1 12 5e ff       	vdivss %xmm15,%xmm13,%xmm7
+            drate += (h2 * h2) / (f32)((end - start) * (end - start));
+        }
+
+        //
+        printf("%5llu %10.3e %10.3e %8.1f %s\n",
+    1313:	c4 41 12 5a dd       	vcvtss2sd %xmm13,%xmm13,%xmm11
+    1318:	48 89 da             	mov    %rbx,%rdx
+            drate += (h2 * h2) / (f32)((end - start) * (end - start));
+    131b:	c5 fb 59 e0          	vmulsd %xmm0,%xmm0,%xmm4
+    131f:	bf 01 00 00 00       	mov    $0x1,%edi
+    1324:	b8 03 00 00 00       	mov    $0x3,%eax
+    1329:	c4 c1 12 59 dd       	vmulss %xmm13,%xmm13,%xmm3
+    132e:	48 8d 0d b3 1d 00 00 	lea    0x1db3(%rip),%rcx        # 30e8 <_IO_stdin_used+0xe8>
+    1335:	48 8d 35 ad 1d 00 00 	lea    0x1dad(%rip),%rsi        # 30e9 <_IO_stdin_used+0xe9>
+    133c:	c5 db 5a ec          	vcvtsd2ss %xmm4,%xmm4,%xmm5
+    1340:	c5 e2 5e f5          	vdivss %xmm5,%xmm3,%xmm6
+            rate += h2 / (f32)(end - start);
+    1344:	c5 c2 5a cf          	vcvtss2sd %xmm7,%xmm7,%xmm1
+    1348:	c5 f3 58 54 24 10    	vaddsd 0x10(%rsp),%xmm1,%xmm2
+    134e:	c5 fb 11 54 24 10    	vmovsd %xmm2,0x10(%rsp)
+    1354:	c5 bb 5e c8          	vdivsd %xmm0,%xmm8,%xmm1
+            drate += (h2 * h2) / (f32)((end - start) * (end - start));
+    1358:	c5 4a 5a ce          	vcvtss2sd %xmm6,%xmm6,%xmm9
+    135c:	c5 33 58 54 24 18    	vaddsd 0x18(%rsp),%xmm9,%xmm10
+    1362:	c5 7b 11 54 24 18    	vmovsd %xmm10,0x18(%rsp)
+    1368:	c5 a3 5e d0          	vdivsd %xmm0,%xmm11,%xmm2
+    136c:	e8 2f fe ff ff       	call   11a0 <__printf_chk@plt>
+               (end - start),
+               h1 / (end - start),
+               h2 / (end - start),
+               (i < warmup) ? "(warm up)" : "");
+
+        fflush(stdout);
+    1371:	48 8b 3d 98 3c 00 00 	mov    0x3c98(%rip),%rdi        # 5010 <stdout@GLIBC_2.2.5>
+    1378:	e8 13 fe ff ff       	call   1190 <fflush@plt>
+    for (u64 i = 0; i < steps; i++)
+    137d:	48 83 fb 0c          	cmp    $0xc,%rbx
+    1381:	0f 84 c9 00 00 00    	je     1450 <main+0x270>
+    1387:	48 83 c3 01          	add    $0x1,%rbx
+        const f64 start = omp_get_wtime();
+    138b:	e8 a0 fd ff ff       	call   1130 <omp_get_wtime@plt>
+    1390:	31 c9                	xor    %ecx,%ecx
+    1392:	31 d2                	xor    %edx,%edx
+    1394:	4c 89 ee             	mov    %r13,%rsi
+    1397:	48 8d 3d a2 07 00 00 	lea    0x7a2(%rip),%rdi        # 1b40 <move_particles._omp_fn.0>
+    139e:	c5 fb 11 44 24 08    	vmovsd %xmm0,0x8(%rsp)
+#pragma omp parallel for simd
+    13a4:	48 89 6c 24 28       	mov    %rbp,0x28(%rsp)
+    13a9:	c7 44 24 30 0a d7 23 	movl   $0x3c23d70a,0x30(%rsp)
+    13b0:	3c 
+    13b1:	4c 89 64 24 20       	mov    %r12,0x20(%rsp)
+    13b6:	e8 05 fe ff ff       	call   11c0 <GOMP_parallel@plt>
+    13bb:	31 c9                	xor    %ecx,%ecx
+    13bd:	31 d2                	xor    %edx,%edx
+    13bf:	4c 89 ee             	mov    %r13,%rsi
+    13c2:	48 8d 3d 57 02 00 00 	lea    0x257(%rip),%rdi        # 1620 <move_particles._omp_fn.1>
+#pragma omp parallel for simd
+    13c9:	48 89 6c 24 28       	mov    %rbp,0x28(%rsp)
+    13ce:	c7 44 24 30 0a d7 23 	movl   $0x3c23d70a,0x30(%rsp)
+    13d5:	3c 
+    13d6:	4c 89 64 24 20       	mov    %r12,0x20(%rsp)
+    13db:	e8 e0 fd ff ff       	call   11c0 <GOMP_parallel@plt>
+        const f64 end = omp_get_wtime();
+    13e0:	e8 4b fd ff ff       	call   1130 <omp_get_wtime@plt>
+        const f32 h1 = (f32)(n) * (f32)(n);
+    13e5:	48 85 ed             	test   %rbp,%rbp
+    13e8:	0f 89 d2 fe ff ff    	jns    12c0 <main+0xe0>
+    13ee:	48 89 e8             	mov    %rbp,%rax
+    13f1:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+    13f5:	48 d1 e8             	shr    %rax
+    13f8:	4c 09 f0             	or     %r14,%rax
+    13fb:	c4 e1 f2 2a d0       	vcvtsi2ss %rax,%xmm1,%xmm2
+    1400:	c5 ea 58 da          	vaddss %xmm2,%xmm2,%xmm3
+    1404:	e9 c0 fe ff ff       	jmp    12c9 <main+0xe9>
+    1409:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+        printf("%5llu %10.3e %10.3e %8.1f %s\n",
+    1410:	c4 41 12 5a f5       	vcvtss2sd %xmm13,%xmm13,%xmm14
+    1415:	c5 bb 5e c8          	vdivsd %xmm0,%xmm8,%xmm1
+    1419:	48 89 da             	mov    %rbx,%rdx
+    141c:	bf 01 00 00 00       	mov    $0x1,%edi
+    1421:	48 8d 0d f4 1c 00 00 	lea    0x1cf4(%rip),%rcx        # 311c <_IO_stdin_used+0x11c>
+    1428:	b8 03 00 00 00       	mov    $0x3,%eax
+    142d:	48 8d 35 b5 1c 00 00 	lea    0x1cb5(%rip),%rsi        # 30e9 <_IO_stdin_used+0xe9>
+    1434:	c5 8b 5e d0          	vdivsd %xmm0,%xmm14,%xmm2
+    1438:	e8 63 fd ff ff       	call   11a0 <__printf_chk@plt>
+        fflush(stdout);
+    143d:	48 8b 3d cc 3b 00 00 	mov    0x3bcc(%rip),%rdi        # 5010 <stdout@GLIBC_2.2.5>
+    1444:	e8 47 fd ff ff       	call   1190 <fflush@plt>
+    for (u64 i = 0; i < steps; i++)
+    1449:	e9 39 ff ff ff       	jmp    1387 <main+0x1a7>
+    144e:	66 90                	xchg   %ax,%ax
+    }
+    // Average GFLOPs/s
+    rate /= (f64)(steps - warmup);
+    1450:	c5 fb 10 05 20 1d 00 	vmovsd 0x1d20(%rip),%xmm0        # 3178 <_IO_stdin_used+0x178>
+    1457:	00 
+    1458:	c4 41 01 57 ff       	vxorpd %xmm15,%xmm15,%xmm15
+    145d:	c5 7b 10 44 24 10    	vmovsd 0x10(%rsp),%xmm8
+
+    // Deviation in GFLOPs/s
+    drate = sqrt(drate / (f64)(steps - warmup) - (rate * rate));
+    1463:	c5 7b 10 64 24 18    	vmovsd 0x18(%rsp),%xmm12
+    rate /= (f64)(steps - warmup);
+    1469:	c5 bb 5e c8          	vdivsd %xmm0,%xmm8,%xmm1
+    drate = sqrt(drate / (f64)(steps - warmup) - (rate * rate));
+    146d:	c5 1b 5e e8          	vdivsd %xmm0,%xmm12,%xmm13
+    1471:	c5 73 59 f1          	vmulsd %xmm1,%xmm1,%xmm14
+    1475:	c4 c1 13 5c c6       	vsubsd %xmm14,%xmm13,%xmm0
+    147a:	c5 79 2e f8          	vucomisd %xmm0,%xmm15
+    147e:	c5 fb 51 f8          	vsqrtsd %xmm0,%xmm0,%xmm7
+    1482:	77 7b                	ja     14ff <main+0x31f>
+    1484:	48 8d 3d bd 1b 00 00 	lea    0x1bbd(%rip),%rdi        # 3048 <_IO_stdin_used+0x48>
+    148b:	c5 fb 11 7c 24 10    	vmovsd %xmm7,0x10(%rsp)
+    1491:	c5 fb 11 4c 24 08    	vmovsd %xmm1,0x8(%rsp)
+    1497:	e8 84 fc ff ff       	call   1120 <puts@plt>
+    149c:	c5 fb 10 4c 24 10    	vmovsd 0x10(%rsp),%xmm1
+    14a2:	48 8d 0d 3f 1c 00 00 	lea    0x1c3f(%rip),%rcx        # 30e8 <_IO_stdin_used+0xe8>
+    14a9:	bf 01 00 00 00       	mov    $0x1,%edi
+    14ae:	c5 fb 10 44 24 08    	vmovsd 0x8(%rsp),%xmm0
+    14b4:	48 8d 15 4c 1c 00 00 	lea    0x1c4c(%rip),%rdx        # 3107 <_IO_stdin_used+0x107>
+    14bb:	b8 02 00 00 00       	mov    $0x2,%eax
+    14c0:	48 8d 35 b9 1b 00 00 	lea    0x1bb9(%rip),%rsi        # 3080 <_IO_stdin_used+0x80>
+    14c7:	e8 d4 fc ff ff       	call   11a0 <__printf_chk@plt>
+    14cc:	48 8d 3d 75 1b 00 00 	lea    0x1b75(%rip),%rdi        # 3048 <_IO_stdin_used+0x48>
+    14d3:	e8 48 fc ff ff       	call   1120 <puts@plt>
+    printf("\033[1m%s %4s \033[42m%10.1lf +- %.1lf GFLOP/s\033[0m\n",
+           "Average performance:", "", rate, drate);
+    printf("-----------------------------------------------------\n");
+
+    //
+    delete_particule_table(&p);
+    14d8:	4c 89 e7             	mov    %r12,%rdi
+    14db:	e8 d0 0c 00 00       	call   21b0 <delete_particule_table>
+
+    //
+    return 0;
+    14e0:	48 8b 44 24 78       	mov    0x78(%rsp),%rax
+    14e5:	64 48 33 04 25 28 00 	xor    %fs:0x28,%rax
+    14ec:	00 00 
+    14ee:	75 31                	jne    1521 <main+0x341>
+    14f0:	48 83 ec 80          	sub    $0xffffffffffffff80,%rsp
+    14f4:	31 c0                	xor    %eax,%eax
+    14f6:	5b                   	pop    %rbx
+    14f7:	5d                   	pop    %rbp
+    14f8:	41 5c                	pop    %r12
+    14fa:	41 5d                	pop    %r13
+    14fc:	41 5e                	pop    %r14
+    14fe:	c3                   	ret
+    14ff:	c5 fb 11 7c 24 10    	vmovsd %xmm7,0x10(%rsp)
+    1505:	c5 fb 11 4c 24 08    	vmovsd %xmm1,0x8(%rsp)
+    drate = sqrt(drate / (f64)(steps - warmup) - (rate * rate));
+    150b:	e8 a0 fc ff ff       	call   11b0 <sqrt@plt>
+    1510:	c5 fb 10 7c 24 10    	vmovsd 0x10(%rsp),%xmm7
+    1516:	c5 fb 10 4c 24 08    	vmovsd 0x8(%rsp),%xmm1
+    151c:	e9 63 ff ff ff       	jmp    1484 <main+0x2a4>
+    1521:	e8 2a fc ff ff       	call   1150 <__stack_chk_fail@plt>
+    1526:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    152d:	00 00 00 
+
+0000000000001530 <_start>:
+    1530:	f3 0f 1e fa          	endbr64
+    1534:	31 ed                	xor    %ebp,%ebp
+    1536:	49 89 d1             	mov    %rdx,%r9
+    1539:	5e                   	pop    %rsi
+    153a:	48 89 e2             	mov    %rsp,%rdx
+    153d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    1541:	50                   	push   %rax
+    1542:	54                   	push   %rsp
+    1543:	4c 8d 05 b6 0d 00 00 	lea    0xdb6(%rip),%r8        # 2300 <__libc_csu_fini>
+    154a:	48 8d 0d 3f 0d 00 00 	lea    0xd3f(%rip),%rcx        # 2290 <__libc_csu_init>
+    1551:	48 8d 3d 88 fc ff ff 	lea    -0x378(%rip),%rdi        # 11e0 <main>
+    1558:	ff 15 82 3a 00 00    	call   *0x3a82(%rip)        # 4fe0 <__libc_start_main@GLIBC_2.2.5>
+    155e:	f4                   	hlt
+    155f:	90                   	nop
+
+0000000000001560 <deregister_tm_clones>:
+    1560:	48 8d 3d a9 3a 00 00 	lea    0x3aa9(%rip),%rdi        # 5010 <stdout@GLIBC_2.2.5>
+    1567:	48 8d 05 a2 3a 00 00 	lea    0x3aa2(%rip),%rax        # 5010 <stdout@GLIBC_2.2.5>
+    156e:	48 39 f8             	cmp    %rdi,%rax
+    1571:	74 15                	je     1588 <deregister_tm_clones+0x28>
+    1573:	48 8b 05 5e 3a 00 00 	mov    0x3a5e(%rip),%rax        # 4fd8 <_ITM_deregisterTMCloneTable>
+    157a:	48 85 c0             	test   %rax,%rax
+    157d:	74 09                	je     1588 <deregister_tm_clones+0x28>
+    157f:	ff e0                	jmp    *%rax
+    1581:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1588:	c3                   	ret
+    1589:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001590 <register_tm_clones>:
+    1590:	48 8d 3d 79 3a 00 00 	lea    0x3a79(%rip),%rdi        # 5010 <stdout@GLIBC_2.2.5>
+    1597:	48 8d 35 72 3a 00 00 	lea    0x3a72(%rip),%rsi        # 5010 <stdout@GLIBC_2.2.5>
+    159e:	48 29 fe             	sub    %rdi,%rsi
+    15a1:	48 89 f0             	mov    %rsi,%rax
+    15a4:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    15a8:	48 c1 f8 03          	sar    $0x3,%rax
+    15ac:	48 01 c6             	add    %rax,%rsi
+    15af:	48 d1 fe             	sar    %rsi
+    15b2:	74 14                	je     15c8 <register_tm_clones+0x38>
+    15b4:	48 8b 05 35 3a 00 00 	mov    0x3a35(%rip),%rax        # 4ff0 <_ITM_registerTMCloneTable>
+    15bb:	48 85 c0             	test   %rax,%rax
+    15be:	74 08                	je     15c8 <register_tm_clones+0x38>
+    15c0:	ff e0                	jmp    *%rax
+    15c2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    15c8:	c3                   	ret
+    15c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000015d0 <__do_global_dtors_aux>:
+    15d0:	f3 0f 1e fa          	endbr64
+    15d4:	80 3d 3d 3a 00 00 00 	cmpb   $0x0,0x3a3d(%rip)        # 5018 <completed.8061>
+    15db:	75 2b                	jne    1608 <__do_global_dtors_aux+0x38>
+    15dd:	55                   	push   %rbp
+    15de:	48 83 3d 12 3a 00 00 	cmpq   $0x0,0x3a12(%rip)        # 4ff8 <__cxa_finalize@GLIBC_2.2.5>
+    15e5:	00 
+    15e6:	48 89 e5             	mov    %rsp,%rbp
+    15e9:	74 0c                	je     15f7 <__do_global_dtors_aux+0x27>
+    15eb:	48 8b 3d 16 3a 00 00 	mov    0x3a16(%rip),%rdi        # 5008 <__dso_handle>
+    15f2:	e8 09 fb ff ff       	call   1100 <__cxa_finalize@plt>
+    15f7:	e8 64 ff ff ff       	call   1560 <deregister_tm_clones>
+    15fc:	c6 05 15 3a 00 00 01 	movb   $0x1,0x3a15(%rip)        # 5018 <completed.8061>
+    1603:	5d                   	pop    %rbp
+    1604:	c3                   	ret
+    1605:	0f 1f 00             	nopl   (%rax)
+    1608:	c3                   	ret
+    1609:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001610 <frame_dummy>:
+    1610:	f3 0f 1e fa          	endbr64
+    1614:	e9 77 ff ff ff       	jmp    1590 <register_tm_clones>
+    1619:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001620 <move_particles._omp_fn.1>:
+#pragma omp parallel for simd
+    1620:	f3 0f 1e fa          	endbr64
+    1624:	55                   	push   %rbp
+    1625:	48 89 e5             	mov    %rsp,%rbp
+    1628:	41 57                	push   %r15
+    162a:	41 56                	push   %r14
+    162c:	41 55                	push   %r13
+    162e:	41 54                	push   %r12
+    1630:	53                   	push   %rbx
+    1631:	48 83 e4 e0          	and    $0xffffffffffffffe0,%rsp
+    1635:	48 83 ec 20          	sub    $0x20,%rsp
+    1639:	48 8b 5f 08          	mov    0x8(%rdi),%rbx
+    for (u64 i = 0; i < n; i++)
+    163d:	48 85 db             	test   %rbx,%rbx
+    1640:	0f 84 c7 04 00 00    	je     1b0d <move_particles._omp_fn.1+0x4ed>
+    1646:	49 89 fd             	mov    %rdi,%r13
+    1649:	e8 12 fb ff ff       	call   1160 <omp_get_num_threads@plt>
+    164e:	41 89 c4             	mov    %eax,%r12d
+    1651:	e8 ea fa ff ff       	call   1140 <omp_get_thread_num@plt>
+    1656:	49 63 f4             	movslq %r12d,%rsi
+    1659:	31 d2                	xor    %edx,%edx
+    165b:	48 63 c8             	movslq %eax,%rcx
+    165e:	48 89 d8             	mov    %rbx,%rax
+    1661:	48 f7 f6             	div    %rsi
+    1664:	48 39 d1             	cmp    %rdx,%rcx
+    1667:	0f 82 b3 04 00 00    	jb     1b20 <move_particles._omp_fn.1+0x500>
+    166d:	48 0f af c8          	imul   %rax,%rcx
+    1671:	48 01 ca             	add    %rcx,%rdx
+    1674:	48 8d 1c 10          	lea    (%rax,%rdx,1),%rbx
+    1678:	48 39 da             	cmp    %rbx,%rdx
+    167b:	0f 83 8c 04 00 00    	jae    1b0d <move_particles._omp_fn.1+0x4ed>
+#pragma omp parallel for simd
+    1681:	49 8b 7d 00          	mov    0x0(%r13),%rdi
+    1685:	4c 8d 48 ff          	lea    -0x1(%rax),%r9
+    1689:	c4 c1 7a 10 55 10    	vmovss 0x10(%r13),%xmm2
+        p->z[i] += dt * p->vz[i];
+    168f:	48 8b 77 10          	mov    0x10(%rdi),%rsi
+    1693:	4c 8b 47 28          	mov    0x28(%rdi),%r8
+        p->x[i] += dt * p->vx[i];
+    1697:	4c 8b 3f             	mov    (%rdi),%r15
+    169a:	4c 8b 6f 18          	mov    0x18(%rdi),%r13
+        p->y[i] += dt * p->vy[i];
+    169e:	4c 8b 67 08          	mov    0x8(%rdi),%r12
+        p->z[i] += dt * p->vz[i];
+    16a2:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+        p->y[i] += dt * p->vy[i];
+    16a7:	4c 8b 77 20          	mov    0x20(%rdi),%r14
+        p->z[i] += dt * p->vz[i];
+    16ab:	4c 89 44 24 10       	mov    %r8,0x10(%rsp)
+    16b0:	49 83 f9 06          	cmp    $0x6,%r9
+    16b4:	0f 86 3c 02 00 00    	jbe    18f6 <move_particles._omp_fn.1+0x2d6>
+    16ba:	4c 8d 0c 95 00 00 00 	lea    0x0(,%rdx,4),%r9
+    16c1:	00 
+    16c2:	48 89 c1             	mov    %rax,%rcx
+    16c5:	c5 e8 c6 ca 00       	vshufps $0x0,%xmm2,%xmm2,%xmm1
+    16ca:	c4 e3 75 18 c9 01    	vinsertf128 $0x1,%xmm1,%ymm1,%ymm1
+    16d0:	4f 8d 04 0f          	lea    (%r15,%r9,1),%r8
+    16d4:	48 c1 e9 03          	shr    $0x3,%rcx
+    16d8:	4c 01 ce             	add    %r9,%rsi
+    16db:	48 89 0c 24          	mov    %rcx,(%rsp)
+    16df:	4f 8d 5c 0d 00       	lea    0x0(%r13,%r9,1),%r11
+    16e4:	48 c1 e1 05          	shl    $0x5,%rcx
+    16e8:	4b 8d 3c 0c          	lea    (%r12,%r9,1),%rdi
+    16ec:	48 89 4c 24 18       	mov    %rcx,0x18(%rsp)
+    16f1:	31 c9                	xor    %ecx,%ecx
+    16f3:	4f 8d 14 0e          	lea    (%r14,%r9,1),%r10
+    16f7:	4c 03 4c 24 10       	add    0x10(%rsp),%r9
+    16fc:	f6 04 24 01          	testb  $0x1,(%rsp)
+    1700:	0f 84 9a 00 00 00    	je     17a0 <move_particles._omp_fn.1+0x180>
+        p->x[i] += dt * p->vx[i];
+    1706:	c4 c1 78 10 23       	vmovups (%r11),%xmm4
+    170b:	c4 c3 5d 18 43 10 01 	vinsertf128 $0x1,0x10(%r11),%ymm4,%ymm0
+    1712:	c5 fc 59 f1          	vmulps %ymm1,%ymm0,%ymm6
+    1716:	b9 20 00 00 00       	mov    $0x20,%ecx
+    171b:	c4 c1 78 10 28       	vmovups (%r8),%xmm5
+    1720:	c4 c3 55 18 58 10 01 	vinsertf128 $0x1,0x10(%r8),%ymm5,%ymm3
+    1727:	c5 cc 58 fb          	vaddps %ymm3,%ymm6,%ymm7
+    172b:	c4 c1 78 11 38       	vmovups %xmm7,(%r8)
+    1730:	c4 c3 7d 19 78 10 01 	vextractf128 $0x1,%ymm7,0x10(%r8)
+        p->y[i] += dt * p->vy[i];
+    1737:	c5 78 10 1f          	vmovups (%rdi),%xmm11
+    173b:	c4 63 25 18 67 10 01 	vinsertf128 $0x1,0x10(%rdi),%ymm11,%ymm12
+    1742:	c4 41 78 10 02       	vmovups (%r10),%xmm8
+    1747:	c4 43 3d 18 4a 10 01 	vinsertf128 $0x1,0x10(%r10),%ymm8,%ymm9
+    174e:	c5 34 59 d1          	vmulps %ymm1,%ymm9,%ymm10
+    1752:	c4 41 2c 58 ec       	vaddps %ymm12,%ymm10,%ymm13
+    1757:	c5 78 11 2f          	vmovups %xmm13,(%rdi)
+    175b:	c4 63 7d 19 6f 10 01 	vextractf128 $0x1,%ymm13,0x10(%rdi)
+        p->z[i] += dt * p->vz[i];
+    1762:	c4 41 78 10 31       	vmovups (%r9),%xmm14
+    1767:	c4 43 0d 18 79 10 01 	vinsertf128 $0x1,0x10(%r9),%ymm14,%ymm15
+    176e:	c5 f8 10 06          	vmovups (%rsi),%xmm0
+    1772:	c5 84 59 e1          	vmulps %ymm1,%ymm15,%ymm4
+    1776:	c4 e3 7d 18 76 10 01 	vinsertf128 $0x1,0x10(%rsi),%ymm0,%ymm6
+    177d:	c5 dc 58 ee          	vaddps %ymm6,%ymm4,%ymm5
+    1781:	c5 f8 11 2e          	vmovups %xmm5,(%rsi)
+    1785:	c4 e3 7d 19 6e 10 01 	vextractf128 $0x1,%ymm5,0x10(%rsi)
+    178c:	48 3b 4c 24 18       	cmp    0x18(%rsp),%rcx
+    1791:	0f 84 49 01 00 00    	je     18e0 <move_particles._omp_fn.1+0x2c0>
+    1797:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    179e:	00 00 
+        p->x[i] += dt * p->vx[i];
+    17a0:	c4 c1 78 10 1c 0b    	vmovups (%r11,%rcx,1),%xmm3
+    17a6:	c4 c3 65 18 7c 0b 10 	vinsertf128 $0x1,0x10(%r11,%rcx,1),%ymm3,%ymm7
+    17ad:	01 
+    17ae:	c5 44 59 c1          	vmulps %ymm1,%ymm7,%ymm8
+    17b2:	c4 41 78 10 0c 08    	vmovups (%r8,%rcx,1),%xmm9
+    17b8:	c4 43 35 18 54 08 10 	vinsertf128 $0x1,0x10(%r8,%rcx,1),%ymm9,%ymm10
+    17bf:	01 
+    17c0:	c4 41 3c 58 da       	vaddps %ymm10,%ymm8,%ymm11
+    17c5:	c4 41 78 11 1c 08    	vmovups %xmm11,(%r8,%rcx,1)
+    17cb:	c4 43 7d 19 5c 08 10 	vextractf128 $0x1,%ymm11,0x10(%r8,%rcx,1)
+    17d2:	01 
+        p->y[i] += dt * p->vy[i];
+    17d3:	c4 41 78 10 24 0a    	vmovups (%r10,%rcx,1),%xmm12
+    17d9:	c4 43 1d 18 6c 0a 10 	vinsertf128 $0x1,0x10(%r10,%rcx,1),%ymm12,%ymm13
+    17e0:	01 
+    17e1:	c5 78 10 3c 0f       	vmovups (%rdi,%rcx,1),%xmm15
+    17e6:	c5 14 59 f1          	vmulps %ymm1,%ymm13,%ymm14
+    17ea:	c4 e3 05 18 64 0f 10 	vinsertf128 $0x1,0x10(%rdi,%rcx,1),%ymm15,%ymm4
+    17f1:	01 
+    17f2:	c5 8c 58 c4          	vaddps %ymm4,%ymm14,%ymm0
+    17f6:	c5 f8 11 04 0f       	vmovups %xmm0,(%rdi,%rcx,1)
+    17fb:	c4 e3 7d 19 44 0f 10 	vextractf128 $0x1,%ymm0,0x10(%rdi,%rcx,1)
+    1802:	01 
+        p->z[i] += dt * p->vz[i];
+    1803:	c4 c1 78 10 34 09    	vmovups (%r9,%rcx,1),%xmm6
+    1809:	c4 c3 4d 18 6c 09 10 	vinsertf128 $0x1,0x10(%r9,%rcx,1),%ymm6,%ymm5
+    1810:	01 
+    1811:	c5 f8 10 1c 0e       	vmovups (%rsi,%rcx,1),%xmm3
+    1816:	c5 d4 59 f9          	vmulps %ymm1,%ymm5,%ymm7
+    181a:	c4 63 65 18 44 0e 10 	vinsertf128 $0x1,0x10(%rsi,%rcx,1),%ymm3,%ymm8
+    1821:	01 
+    1822:	c4 41 44 58 c8       	vaddps %ymm8,%ymm7,%ymm9
+    1827:	c5 78 11 0c 0e       	vmovups %xmm9,(%rsi,%rcx,1)
+    182c:	c4 63 7d 19 4c 0e 10 	vextractf128 $0x1,%ymm9,0x10(%rsi,%rcx,1)
+    1833:	01 
+        p->x[i] += dt * p->vx[i];
+    1834:	c4 41 78 10 54 0b 20 	vmovups 0x20(%r11,%rcx,1),%xmm10
+    183b:	c4 43 2d 18 5c 0b 30 	vinsertf128 $0x1,0x30(%r11,%rcx,1),%ymm10,%ymm11
+    1842:	01 
+    1843:	c4 41 78 10 6c 08 20 	vmovups 0x20(%r8,%rcx,1),%xmm13
+    184a:	c5 24 59 e1          	vmulps %ymm1,%ymm11,%ymm12
+    184e:	c4 43 15 18 74 08 30 	vinsertf128 $0x1,0x30(%r8,%rcx,1),%ymm13,%ymm14
+    1855:	01 
+    1856:	c4 41 1c 58 fe       	vaddps %ymm14,%ymm12,%ymm15
+    185b:	c4 41 78 11 7c 08 20 	vmovups %xmm15,0x20(%r8,%rcx,1)
+    1862:	c4 43 7d 19 7c 08 30 	vextractf128 $0x1,%ymm15,0x30(%r8,%rcx,1)
+    1869:	01 
+        p->y[i] += dt * p->vy[i];
+    186a:	c4 c1 78 10 64 0a 20 	vmovups 0x20(%r10,%rcx,1),%xmm4
+    1871:	c4 c3 5d 18 44 0a 30 	vinsertf128 $0x1,0x30(%r10,%rcx,1),%ymm4,%ymm0
+    1878:	01 
+    1879:	c5 f8 10 6c 0f 20    	vmovups 0x20(%rdi,%rcx,1),%xmm5
+    187f:	c5 fc 59 f1          	vmulps %ymm1,%ymm0,%ymm6
+    1883:	c4 e3 55 18 7c 0f 30 	vinsertf128 $0x1,0x30(%rdi,%rcx,1),%ymm5,%ymm7
+    188a:	01 
+    188b:	c5 cc 58 df          	vaddps %ymm7,%ymm6,%ymm3
+    188f:	c5 f8 11 5c 0f 20    	vmovups %xmm3,0x20(%rdi,%rcx,1)
+    1895:	c4 e3 7d 19 5c 0f 30 	vextractf128 $0x1,%ymm3,0x30(%rdi,%rcx,1)
+    189c:	01 
+        p->z[i] += dt * p->vz[i];
+    189d:	c4 41 78 10 44 09 20 	vmovups 0x20(%r9,%rcx,1),%xmm8
+    18a4:	c4 43 3d 18 4c 09 30 	vinsertf128 $0x1,0x30(%r9,%rcx,1),%ymm8,%ymm9
+    18ab:	01 
+    18ac:	c5 78 10 5c 0e 20    	vmovups 0x20(%rsi,%rcx,1),%xmm11
+    18b2:	c5 34 59 d1          	vmulps %ymm1,%ymm9,%ymm10
+    18b6:	c4 63 25 18 64 0e 30 	vinsertf128 $0x1,0x30(%rsi,%rcx,1),%ymm11,%ymm12
+    18bd:	01 
+    18be:	c4 41 2c 58 ec       	vaddps %ymm12,%ymm10,%ymm13
+    18c3:	c5 78 11 6c 0e 20    	vmovups %xmm13,0x20(%rsi,%rcx,1)
+    18c9:	c4 63 7d 19 6c 0e 30 	vextractf128 $0x1,%ymm13,0x30(%rsi,%rcx,1)
+    18d0:	01 
+    18d1:	48 83 c1 40          	add    $0x40,%rcx
+    18d5:	48 3b 4c 24 18       	cmp    0x18(%rsp),%rcx
+    18da:	0f 85 c0 fe ff ff    	jne    17a0 <move_particles._omp_fn.1+0x180>
+    18e0:	48 89 c6             	mov    %rax,%rsi
+    18e3:	48 83 e6 f8          	and    $0xfffffffffffffff8,%rsi
+    18e7:	48 01 f2             	add    %rsi,%rdx
+    18ea:	48 39 f0             	cmp    %rsi,%rax
+    18ed:	0f 84 3d 02 00 00    	je     1b30 <move_particles._omp_fn.1+0x510>
+    18f3:	c5 f8 77             	vzeroupper
+        p->x[i] += dt * p->vx[i];
+    18f6:	48 8d 04 95 00 00 00 	lea    0x0(,%rdx,4),%rax
+    18fd:	00 
+        p->z[i] += dt * p->vz[i];
+    18fe:	4c 8b 5c 24 08       	mov    0x8(%rsp),%r11
+        p->x[i] += dt * p->vx[i];
+    1903:	4d 8d 0c 07          	lea    (%r15,%rax,1),%r9
+        p->z[i] += dt * p->vz[i];
+    1907:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+        p->x[i] += dt * p->vx[i];
+    190c:	c4 c1 6a 59 4c 95 00 	vmulss 0x0(%r13,%rdx,4),%xmm2,%xmm1
+    1913:	c4 41 72 58 31       	vaddss (%r9),%xmm1,%xmm14
+        p->y[i] += dt * p->vy[i];
+    1918:	4d 8d 04 04          	lea    (%r12,%rax,1),%r8
+    191c:	4c 8d 52 01          	lea    0x1(%rdx),%r10
+        p->z[i] += dt * p->vz[i];
+    1920:	4c 01 d8             	add    %r11,%rax
+        p->x[i] += dt * p->vx[i];
+    1923:	c4 41 7a 11 31       	vmovss %xmm14,(%r9)
+        p->y[i] += dt * p->vy[i];
+    1928:	c4 41 6a 59 3c 96    	vmulss (%r14,%rdx,4),%xmm2,%xmm15
+    192e:	c4 c1 02 58 20       	vaddss (%r8),%xmm15,%xmm4
+    1933:	c4 c1 7a 11 20       	vmovss %xmm4,(%r8)
+        p->z[i] += dt * p->vz[i];
+    1938:	c5 ea 59 04 97       	vmulss (%rdi,%rdx,4),%xmm2,%xmm0
+    193d:	c5 fa 58 30          	vaddss (%rax),%xmm0,%xmm6
+    1941:	c5 fa 11 30          	vmovss %xmm6,(%rax)
+    1945:	4c 39 d3             	cmp    %r10,%rbx
+    1948:	0f 86 bf 01 00 00    	jbe    1b0d <move_particles._omp_fn.1+0x4ed>
+        p->x[i] += dt * p->vx[i];
+    194e:	4a 8d 0c 95 00 00 00 	lea    0x0(,%r10,4),%rcx
+    1955:	00 
+    1956:	49 8d 34 0f          	lea    (%r15,%rcx,1),%rsi
+    195a:	c4 81 6a 59 6c 95 00 	vmulss 0x0(%r13,%r10,4),%xmm2,%xmm5
+    1961:	c5 d2 58 3e          	vaddss (%rsi),%xmm5,%xmm7
+        p->y[i] += dt * p->vy[i];
+    1965:	49 8d 04 0c          	lea    (%r12,%rcx,1),%rax
+        p->z[i] += dt * p->vz[i];
+    1969:	4c 01 d9             	add    %r11,%rcx
+    196c:	4c 8d 4a 02          	lea    0x2(%rdx),%r9
+        p->x[i] += dt * p->vx[i];
+    1970:	c5 fa 11 3e          	vmovss %xmm7,(%rsi)
+        p->y[i] += dt * p->vy[i];
+    1974:	c4 81 6a 59 1c 96    	vmulss (%r14,%r10,4),%xmm2,%xmm3
+    197a:	c5 62 58 00          	vaddss (%rax),%xmm3,%xmm8
+    197e:	c5 7a 11 00          	vmovss %xmm8,(%rax)
+        p->z[i] += dt * p->vz[i];
+    1982:	c4 21 6a 59 0c 97    	vmulss (%rdi,%r10,4),%xmm2,%xmm9
+    1988:	c5 32 58 11          	vaddss (%rcx),%xmm9,%xmm10
+    198c:	c5 7a 11 11          	vmovss %xmm10,(%rcx)
+    1990:	4c 39 cb             	cmp    %r9,%rbx
+    1993:	0f 86 74 01 00 00    	jbe    1b0d <move_particles._omp_fn.1+0x4ed>
+        p->x[i] += dt * p->vx[i];
+    1999:	4e 8d 04 8d 00 00 00 	lea    0x0(,%r9,4),%r8
+    19a0:	00 
+    19a1:	4f 8d 14 07          	lea    (%r15,%r8,1),%r10
+    19a5:	c4 01 6a 59 5c 8d 00 	vmulss 0x0(%r13,%r9,4),%xmm2,%xmm11
+    19ac:	c4 41 22 58 22       	vaddss (%r10),%xmm11,%xmm12
+        p->y[i] += dt * p->vy[i];
+    19b1:	4b 8d 0c 04          	lea    (%r12,%r8,1),%rcx
+        p->z[i] += dt * p->vz[i];
+    19b5:	4d 01 d8             	add    %r11,%r8
+        p->x[i] += dt * p->vx[i];
+    19b8:	c4 41 7a 11 22       	vmovss %xmm12,(%r10)
+        p->y[i] += dt * p->vy[i];
+    19bd:	c4 01 6a 59 2c 8e    	vmulss (%r14,%r9,4),%xmm2,%xmm13
+    19c3:	c5 92 58 09          	vaddss (%rcx),%xmm13,%xmm1
+    19c7:	c5 fa 11 09          	vmovss %xmm1,(%rcx)
+        p->z[i] += dt * p->vz[i];
+    19cb:	c4 21 6a 59 34 8f    	vmulss (%rdi,%r9,4),%xmm2,%xmm14
+    19d1:	c4 41 0a 58 38       	vaddss (%r8),%xmm14,%xmm15
+    19d6:	4c 8d 4a 03          	lea    0x3(%rdx),%r9
+    19da:	c4 41 7a 11 38       	vmovss %xmm15,(%r8)
+    19df:	4c 39 cb             	cmp    %r9,%rbx
+    19e2:	0f 86 25 01 00 00    	jbe    1b0d <move_particles._omp_fn.1+0x4ed>
+        p->x[i] += dt * p->vx[i];
+    19e8:	4a 8d 04 8d 00 00 00 	lea    0x0(,%r9,4),%rax
+    19ef:	00 
+    19f0:	49 8d 34 07          	lea    (%r15,%rax,1),%rsi
+    19f4:	c4 81 6a 59 64 8d 00 	vmulss 0x0(%r13,%r9,4),%xmm2,%xmm4
+    19fb:	c5 da 58 06          	vaddss (%rsi),%xmm4,%xmm0
+        p->y[i] += dt * p->vy[i];
+    19ff:	4d 8d 04 04          	lea    (%r12,%rax,1),%r8
+        p->z[i] += dt * p->vz[i];
+    1a03:	4c 01 d8             	add    %r11,%rax
+    1a06:	4c 8d 52 04          	lea    0x4(%rdx),%r10
+        p->x[i] += dt * p->vx[i];
+    1a0a:	c5 fa 11 06          	vmovss %xmm0,(%rsi)
+        p->y[i] += dt * p->vy[i];
+    1a0e:	c4 81 6a 59 34 8e    	vmulss (%r14,%r9,4),%xmm2,%xmm6
+    1a14:	c4 c1 4a 58 28       	vaddss (%r8),%xmm6,%xmm5
+    1a19:	c4 c1 7a 11 28       	vmovss %xmm5,(%r8)
+        p->z[i] += dt * p->vz[i];
+    1a1e:	c4 a1 6a 59 3c 8f    	vmulss (%rdi,%r9,4),%xmm2,%xmm7
+    1a24:	c5 c2 58 18          	vaddss (%rax),%xmm7,%xmm3
+    1a28:	c5 fa 11 18          	vmovss %xmm3,(%rax)
+    1a2c:	4c 39 d3             	cmp    %r10,%rbx
+    1a2f:	0f 86 d8 00 00 00    	jbe    1b0d <move_particles._omp_fn.1+0x4ed>
+        p->x[i] += dt * p->vx[i];
+    1a35:	4a 8d 0c 95 00 00 00 	lea    0x0(,%r10,4),%rcx
+    1a3c:	00 
+    1a3d:	4d 8d 0c 0f          	lea    (%r15,%rcx,1),%r9
+    1a41:	c4 01 6a 59 44 95 00 	vmulss 0x0(%r13,%r10,4),%xmm2,%xmm8
+    1a48:	c4 41 3a 58 09       	vaddss (%r9),%xmm8,%xmm9
+        p->y[i] += dt * p->vy[i];
+    1a4d:	49 8d 04 0c          	lea    (%r12,%rcx,1),%rax
+        p->z[i] += dt * p->vz[i];
+    1a51:	4c 01 d9             	add    %r11,%rcx
+    1a54:	4c 8d 42 05          	lea    0x5(%rdx),%r8
+        p->x[i] += dt * p->vx[i];
+    1a58:	c4 41 7a 11 09       	vmovss %xmm9,(%r9)
+        p->y[i] += dt * p->vy[i];
+    1a5d:	c4 01 6a 59 14 96    	vmulss (%r14,%r10,4),%xmm2,%xmm10
+    1a63:	c5 2a 58 18          	vaddss (%rax),%xmm10,%xmm11
+    1a67:	c5 7a 11 18          	vmovss %xmm11,(%rax)
+        p->z[i] += dt * p->vz[i];
+    1a6b:	c4 21 6a 59 24 97    	vmulss (%rdi,%r10,4),%xmm2,%xmm12
+    1a71:	c5 1a 58 29          	vaddss (%rcx),%xmm12,%xmm13
+    1a75:	c5 7a 11 29          	vmovss %xmm13,(%rcx)
+    1a79:	4c 39 c3             	cmp    %r8,%rbx
+    1a7c:	0f 86 8b 00 00 00    	jbe    1b0d <move_particles._omp_fn.1+0x4ed>
+        p->x[i] += dt * p->vx[i];
+    1a82:	4e 8d 14 85 00 00 00 	lea    0x0(,%r8,4),%r10
+    1a89:	00 
+    1a8a:	48 83 c2 06          	add    $0x6,%rdx
+    1a8e:	4b 8d 34 17          	lea    (%r15,%r10,1),%rsi
+    1a92:	c4 81 6a 59 4c 85 00 	vmulss 0x0(%r13,%r8,4),%xmm2,%xmm1
+    1a99:	c5 72 58 36          	vaddss (%rsi),%xmm1,%xmm14
+        p->y[i] += dt * p->vy[i];
+    1a9d:	4b 8d 0c 14          	lea    (%r12,%r10,1),%rcx
+        p->z[i] += dt * p->vz[i];
+    1aa1:	4d 01 da             	add    %r11,%r10
+        p->x[i] += dt * p->vx[i];
+    1aa4:	c5 7a 11 36          	vmovss %xmm14,(%rsi)
+        p->y[i] += dt * p->vy[i];
+    1aa8:	c4 01 6a 59 3c 86    	vmulss (%r14,%r8,4),%xmm2,%xmm15
+    1aae:	c5 82 58 21          	vaddss (%rcx),%xmm15,%xmm4
+    1ab2:	c5 fa 11 21          	vmovss %xmm4,(%rcx)
+        p->z[i] += dt * p->vz[i];
+    1ab6:	c4 a1 6a 59 04 87    	vmulss (%rdi,%r8,4),%xmm2,%xmm0
+    1abc:	c4 c1 7a 58 32       	vaddss (%r10),%xmm0,%xmm6
+    1ac1:	c4 c1 7a 11 32       	vmovss %xmm6,(%r10)
+    1ac6:	48 39 d3             	cmp    %rdx,%rbx
+    1ac9:	76 42                	jbe    1b0d <move_particles._omp_fn.1+0x4ed>
+        p->x[i] += dt * p->vx[i];
+    1acb:	48 8d 1c 95 00 00 00 	lea    0x0(,%rdx,4),%rbx
+    1ad2:	00 
+    1ad3:	4d 8d 3c 1f          	lea    (%r15,%rbx,1),%r15
+        p->y[i] += dt * p->vy[i];
+    1ad7:	49 01 dc             	add    %rbx,%r12
+        p->z[i] += dt * p->vz[i];
+    1ada:	4c 01 db             	add    %r11,%rbx
+        p->x[i] += dt * p->vx[i];
+    1add:	c4 c1 6a 59 6c 95 00 	vmulss 0x0(%r13,%rdx,4),%xmm2,%xmm5
+    1ae4:	c4 c1 52 58 3f       	vaddss (%r15),%xmm5,%xmm7
+    1ae9:	c4 c1 7a 11 3f       	vmovss %xmm7,(%r15)
+        p->y[i] += dt * p->vy[i];
+    1aee:	c4 c1 6a 59 1c 96    	vmulss (%r14,%rdx,4),%xmm2,%xmm3
+    1af4:	c4 41 62 58 04 24    	vaddss (%r12),%xmm3,%xmm8
+    1afa:	c4 41 7a 11 04 24    	vmovss %xmm8,(%r12)
+        p->z[i] += dt * p->vz[i];
+    1b00:	c5 ea 59 14 97       	vmulss (%rdi,%rdx,4),%xmm2,%xmm2
+    1b05:	c5 6a 58 0b          	vaddss (%rbx),%xmm2,%xmm9
+    1b09:	c5 7a 11 0b          	vmovss %xmm9,(%rbx)
+#pragma omp parallel for simd
+    1b0d:	48 8d 65 d8          	lea    -0x28(%rbp),%rsp
+    1b11:	5b                   	pop    %rbx
+    1b12:	41 5c                	pop    %r12
+    1b14:	41 5d                	pop    %r13
+    1b16:	41 5e                	pop    %r14
+    1b18:	41 5f                	pop    %r15
+    1b1a:	5d                   	pop    %rbp
+    1b1b:	c3                   	ret
+    1b1c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1b20:	48 83 c0 01          	add    $0x1,%rax
+    1b24:	31 d2                	xor    %edx,%edx
+    1b26:	e9 42 fb ff ff       	jmp    166d <move_particles._omp_fn.1+0x4d>
+    1b2b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    1b30:	c5 f8 77             	vzeroupper
+    1b33:	eb d8                	jmp    1b0d <move_particles._omp_fn.1+0x4ed>
+    1b35:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    1b3c:	00 00 00 00 
+
+0000000000001b40 <move_particles._omp_fn.0>:
+#pragma omp parallel for simd
+    1b40:	f3 0f 1e fa          	endbr64
+    1b44:	41 57                	push   %r15
+    1b46:	41 56                	push   %r14
+    1b48:	41 55                	push   %r13
+    1b4a:	41 54                	push   %r12
+    1b4c:	55                   	push   %rbp
+    1b4d:	53                   	push   %rbx
+    1b4e:	48 83 ec 38          	sub    $0x38,%rsp
+    1b52:	48 8b 5f 08          	mov    0x8(%rdi),%rbx
+    for (u64 i = 0; i < n; i++)
+    1b56:	48 85 db             	test   %rbx,%rbx
+    1b59:	0f 84 ac 04 00 00    	je     200b <move_particles._omp_fn.0+0x4cb>
+    1b5f:	49 89 fc             	mov    %rdi,%r12
+    1b62:	e8 f9 f5 ff ff       	call   1160 <omp_get_num_threads@plt>
+    1b67:	89 c5                	mov    %eax,%ebp
+    1b69:	e8 d2 f5 ff ff       	call   1140 <omp_get_thread_num@plt>
+    1b6e:	48 63 cd             	movslq %ebp,%rcx
+    1b71:	31 d2                	xor    %edx,%edx
+    1b73:	4c 63 c0             	movslq %eax,%r8
+    1b76:	48 89 d8             	mov    %rbx,%rax
+    1b79:	48 f7 f1             	div    %rcx
+    1b7c:	49 39 d0             	cmp    %rdx,%r8
+    1b7f:	0f 82 95 04 00 00    	jb     201a <move_particles._omp_fn.0+0x4da>
+    1b85:	4c 0f af c0          	imul   %rax,%r8
+    1b89:	49 01 d0             	add    %rdx,%r8
+    1b8c:	4e 8d 3c 00          	lea    (%rax,%r8,1),%r15
+    1b90:	4d 39 f8             	cmp    %r15,%r8
+    1b93:	0f 83 72 04 00 00    	jae    200b <move_particles._omp_fn.0+0x4cb>
+#pragma omp parallel for simd
+    1b99:	4d 8b 0c 24          	mov    (%r12),%r9
+    1b9d:	4c 8d 50 ff          	lea    -0x1(%rax),%r10
+    1ba1:	c4 c1 7a 10 64 24 10 	vmovss 0x10(%r12),%xmm4
+        f32 x_i = p->x[i];
+    1ba8:	49 8b 09             	mov    (%r9),%rcx
+        f32 y_i = p->y[i];
+    1bab:	49 8b 71 08          	mov    0x8(%r9),%rsi
+        f32 z_i = p->z[i];
+    1baf:	49 8b 79 10          	mov    0x10(%r9),%rdi
+        p->vx[i] += dt * fx; // 19 (mul, add)
+    1bb3:	4d 8b 59 18          	mov    0x18(%r9),%r11
+        p->vy[i] += dt * fy; // 21 (mul, add)
+    1bb7:	49 8b 69 20          	mov    0x20(%r9),%rbp
+        p->vz[i] += dt * fz; // 23 (mul, add)
+    1bbb:	4d 8b 61 28          	mov    0x28(%r9),%r12
+    1bbf:	49 83 fa 02          	cmp    $0x2,%r10
+    1bc3:	0f 86 59 02 00 00    	jbe    1e22 <move_particles._omp_fn.0+0x2e2>
+    1bc9:	4e 8d 14 85 00 00 00 	lea    0x0(,%r8,4),%r10
+    1bd0:	00 
+    1bd1:	49 89 c1             	mov    %rax,%r9
+    1bd4:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+    1bd9:	c5 78 28 15 5f 15 00 	vmovaps 0x155f(%rip),%xmm10        # 3140 <_IO_stdin_used+0x140>
+    1be0:	00 
+    1be1:	4e 8d 2c 11          	lea    (%rcx,%r10,1),%r13
+    1be5:	4c 89 5c 24 28       	mov    %r11,0x28(%rsp)
+    1bea:	49 c1 e9 02          	shr    $0x2,%r9
+    1bee:	c5 78 28 0d 5a 15 00 	vmovaps 0x155a(%rip),%xmm9        # 3150 <_IO_stdin_used+0x150>
+    1bf5:	00 
+    1bf6:	4e 8d 34 16          	lea    (%rsi,%r10,1),%r14
+    1bfa:	4c 89 6c 24 18       	mov    %r13,0x18(%rsp)
+    1bff:	49 c1 e1 04          	shl    $0x4,%r9
+    1c03:	c5 58 c6 dc 00       	vshufps $0x0,%xmm4,%xmm4,%xmm11
+    1c08:	4a 8d 14 17          	lea    (%rdi,%r10,1),%rdx
+    1c0c:	4c 89 74 24 10       	mov    %r14,0x10(%rsp)
+    1c11:	48 89 54 24 08       	mov    %rdx,0x8(%rsp)
+    1c16:	4f 8d 34 13          	lea    (%r11,%r10,1),%r14
+    1c1a:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+    1c1f:	4c 8b 5c 24 18       	mov    0x18(%rsp),%r11
+    1c24:	4c 89 44 24 08       	mov    %r8,0x8(%rsp)
+    1c29:	4e 8d 6c 15 00       	lea    0x0(%rbp,%r10,1),%r13
+    1c2e:	4d 01 e2             	add    %r12,%r10
+    1c31:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+    1c36:	4c 89 0c 24          	mov    %r9,(%rsp)
+    1c3a:	45 31 c9             	xor    %r9d,%r9d
+    1c3d:	0f 1f 00             	nopl   (%rax)
+        f32 z_i = p->z[i];
+    1c40:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+        for (u64 j = 0; j < n; j++)
+    1c44:	31 d2                	xor    %edx,%edx
+        f32 z_i = p->z[i];
+    1c46:	c5 f8 28 d0          	vmovaps %xmm0,%xmm2
+    1c4a:	c5 78 28 f8          	vmovaps %xmm0,%xmm15
+        f32 x_i = p->x[i];
+    1c4e:	c4 01 78 10 04 0b    	vmovups (%r11,%r9,1),%xmm8
+        f32 y_i = p->y[i];
+    1c54:	c4 81 78 10 3c 08    	vmovups (%r8,%r9,1),%xmm7
+        f32 z_i = p->z[i];
+    1c5a:	c4 a1 78 10 34 08    	vmovups (%rax,%r9,1),%xmm6
+        for (u64 j = 0; j < n; j++)
+    1c60:	f6 c3 01             	test   $0x1,%bl
+    1c63:	74 7b                	je     1ce0 <move_particles._omp_fn.0+0x1a0>
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1c65:	c4 e2 79 18 19       	vbroadcastss (%rcx),%xmm3
+        for (u64 j = 0; j < n; j++)
+    1c6a:	ba 01 00 00 00       	mov    $0x1,%edx
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1c6f:	c4 e2 79 18 16       	vbroadcastss (%rsi),%xmm2
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1c74:	c4 41 60 5c e8       	vsubps %xmm8,%xmm3,%xmm13
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1c79:	c4 e2 79 18 0f       	vbroadcastss (%rdi),%xmm1
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1c7e:	c5 68 5c f7          	vsubps %xmm7,%xmm2,%xmm14
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1c82:	c5 70 5c e6          	vsubps %xmm6,%xmm1,%xmm12
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1c86:	c4 c1 10 59 ed       	vmulps %xmm13,%xmm13,%xmm5
+    1c8b:	c4 41 08 59 fe       	vmulps %xmm14,%xmm14,%xmm15
+    1c90:	c4 c1 18 59 d4       	vmulps %xmm12,%xmm12,%xmm2
+    1c95:	c5 80 58 dd          	vaddps %xmm5,%xmm15,%xmm3
+    1c99:	c5 e0 58 ca          	vaddps %xmm2,%xmm3,%xmm1
+    1c9d:	c4 41 70 58 fa       	vaddps %xmm10,%xmm1,%xmm15
+            const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
+    1ca2:	c4 c1 51 72 e7 01    	vpsrad $0x1,%xmm15,%xmm5
+    1ca8:	c5 f8 5b dd          	vcvtdq2ps %xmm5,%xmm3
+    1cac:	c4 c1 60 59 d7       	vmulps %xmm15,%xmm3,%xmm2
+    1cb1:	c5 b0 5e ca          	vdivps %xmm2,%xmm9,%xmm1
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1cb5:	c4 41 70 59 ed       	vmulps %xmm13,%xmm1,%xmm13
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1cba:	c4 41 70 59 f6       	vmulps %xmm14,%xmm1,%xmm14
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1cbf:	c4 41 70 59 e4       	vmulps %xmm12,%xmm1,%xmm12
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1cc4:	c4 41 78 58 fd       	vaddps %xmm13,%xmm0,%xmm15
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1cc9:	c4 c1 78 58 d6       	vaddps %xmm14,%xmm0,%xmm2
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1cce:	c4 c1 78 58 c4       	vaddps %xmm12,%xmm0,%xmm0
+        for (u64 j = 0; j < n; j++)
+    1cd3:	48 83 fb 01          	cmp    $0x1,%rbx
+    1cd7:	0f 84 e2 00 00 00    	je     1dbf <move_particles._omp_fn.0+0x27f>
+    1cdd:	0f 1f 00             	nopl   (%rax)
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1ce0:	c4 e2 79 18 2c 91    	vbroadcastss (%rcx,%rdx,4),%xmm5
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1ce6:	c4 e2 79 18 0c 96    	vbroadcastss (%rsi,%rdx,4),%xmm1
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1cec:	c4 c1 50 5c d8       	vsubps %xmm8,%xmm5,%xmm3
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1cf1:	c4 62 79 18 2c 97    	vbroadcastss (%rdi,%rdx,4),%xmm13
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1cf7:	c5 f0 5c ef          	vsubps %xmm7,%xmm1,%xmm5
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1cfb:	c5 10 5c f6          	vsubps %xmm6,%xmm13,%xmm14
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1cff:	c5 e0 59 cb          	vmulps %xmm3,%xmm3,%xmm1
+    1d03:	c5 50 59 e5          	vmulps %xmm5,%xmm5,%xmm12
+    1d07:	c5 18 58 e9          	vaddps %xmm1,%xmm12,%xmm13
+    1d0b:	c4 41 08 59 e6       	vmulps %xmm14,%xmm14,%xmm12
+    1d10:	c4 c1 10 58 cc       	vaddps %xmm12,%xmm13,%xmm1
+    1d15:	c4 41 70 58 ea       	vaddps %xmm10,%xmm1,%xmm13
+            const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
+    1d1a:	c4 c1 19 72 e5 01    	vpsrad $0x1,%xmm13,%xmm12
+    1d20:	c4 c1 78 5b cc       	vcvtdq2ps %xmm12,%xmm1
+    1d25:	c4 41 70 59 ed       	vmulps %xmm13,%xmm1,%xmm13
+    1d2a:	c4 c1 30 5e cd       	vdivps %xmm13,%xmm9,%xmm1
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1d2f:	c4 62 79 18 6c 97 04 	vbroadcastss 0x4(%rdi,%rdx,4),%xmm13
+    1d36:	c5 10 5c ee          	vsubps %xmm6,%xmm13,%xmm13
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1d3a:	c5 f0 59 ed          	vmulps %xmm5,%xmm1,%xmm5
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1d3e:	c5 f0 59 db          	vmulps %xmm3,%xmm1,%xmm3
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1d42:	c5 68 58 e5          	vaddps %xmm5,%xmm2,%xmm12
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1d46:	c4 c1 70 59 d6       	vmulps %xmm14,%xmm1,%xmm2
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1d4b:	c4 62 79 18 74 96 04 	vbroadcastss 0x4(%rsi,%rdx,4),%xmm14
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1d52:	c5 00 58 fb          	vaddps %xmm3,%xmm15,%xmm15
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1d56:	c5 88 5c ef          	vsubps %xmm7,%xmm14,%xmm5
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1d5a:	c5 f8 58 ca          	vaddps %xmm2,%xmm0,%xmm1
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1d5e:	c4 e2 79 18 44 91 04 	vbroadcastss 0x4(%rcx,%rdx,4),%xmm0
+        for (u64 j = 0; j < n; j++)
+    1d65:	48 83 c2 02          	add    $0x2,%rdx
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1d69:	c5 d0 59 d5          	vmulps %xmm5,%xmm5,%xmm2
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1d6d:	c4 c1 78 5c d8       	vsubps %xmm8,%xmm0,%xmm3
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1d72:	c5 e0 59 c3          	vmulps %xmm3,%xmm3,%xmm0
+    1d76:	c5 68 58 f0          	vaddps %xmm0,%xmm2,%xmm14
+    1d7a:	c4 c1 10 59 d5       	vmulps %xmm13,%xmm13,%xmm2
+    1d7f:	c5 88 58 c2          	vaddps %xmm2,%xmm14,%xmm0
+    1d83:	c4 41 78 58 f2       	vaddps %xmm10,%xmm0,%xmm14
+            const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
+    1d88:	c4 c1 69 72 e6 01    	vpsrad $0x1,%xmm14,%xmm2
+    1d8e:	c5 f8 5b c2          	vcvtdq2ps %xmm2,%xmm0
+    1d92:	c4 41 78 59 f6       	vmulps %xmm14,%xmm0,%xmm14
+    1d97:	c4 c1 30 5e c6       	vdivps %xmm14,%xmm9,%xmm0
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1d9c:	c5 f8 59 ed          	vmulps %xmm5,%xmm0,%xmm5
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1da0:	c5 f8 59 db          	vmulps %xmm3,%xmm0,%xmm3
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1da4:	c5 98 58 d5          	vaddps %xmm5,%xmm12,%xmm2
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1da8:	c4 41 78 59 e5       	vmulps %xmm13,%xmm0,%xmm12
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1dad:	c5 00 58 fb          	vaddps %xmm3,%xmm15,%xmm15
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1db1:	c4 c1 70 58 c4       	vaddps %xmm12,%xmm1,%xmm0
+        for (u64 j = 0; j < n; j++)
+    1db6:	48 39 d3             	cmp    %rdx,%rbx
+    1db9:	0f 85 21 ff ff ff    	jne    1ce0 <move_particles._omp_fn.0+0x1a0>
+        p->vx[i] += dt * fx; // 19 (mul, add)
+    1dbf:	c4 41 20 59 c7       	vmulps %xmm15,%xmm11,%xmm8
+    1dc4:	c4 81 38 58 3c 0e    	vaddps (%r14,%r9,1),%xmm8,%xmm7
+        p->vy[i] += dt * fy; // 21 (mul, add)
+    1dca:	c5 a0 59 f2          	vmulps %xmm2,%xmm11,%xmm6
+        p->vz[i] += dt * fz; // 23 (mul, add)
+    1dce:	c5 a0 59 c8          	vmulps %xmm0,%xmm11,%xmm1
+        p->vx[i] += dt * fx; // 19 (mul, add)
+    1dd2:	c4 81 78 11 3c 0e    	vmovups %xmm7,(%r14,%r9,1)
+        p->vy[i] += dt * fy; // 21 (mul, add)
+    1dd8:	c4 01 48 58 7c 0d 00 	vaddps 0x0(%r13,%r9,1),%xmm6,%xmm15
+    1ddf:	c4 01 78 11 7c 0d 00 	vmovups %xmm15,0x0(%r13,%r9,1)
+        p->vz[i] += dt * fz; // 23 (mul, add)
+    1de6:	c4 01 70 58 2c 0a    	vaddps (%r10,%r9,1),%xmm1,%xmm13
+    1dec:	c4 01 78 11 2c 0a    	vmovups %xmm13,(%r10,%r9,1)
+    1df2:	49 83 c1 10          	add    $0x10,%r9
+    1df6:	4c 3b 0c 24          	cmp    (%rsp),%r9
+    1dfa:	0f 85 40 fe ff ff    	jne    1c40 <move_particles._omp_fn.0+0x100>
+    1e00:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+    1e05:	4c 8b 44 24 08       	mov    0x8(%rsp),%r8
+    1e0a:	4c 8b 5c 24 28       	mov    0x28(%rsp),%r11
+    1e0f:	48 89 c2             	mov    %rax,%rdx
+    1e12:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+    1e16:	49 01 d0             	add    %rdx,%r8
+    1e19:	48 39 d0             	cmp    %rdx,%rax
+    1e1c:	0f 84 e9 01 00 00    	je     200b <move_particles._omp_fn.0+0x4cb>
+    1e22:	c5 7a 10 0d fe 12 00 	vmovss 0x12fe(%rip),%xmm9        # 3128 <_IO_stdin_used+0x128>
+    1e29:	00 
+    1e2a:	c4 41 28 57 d2       	vxorps %xmm10,%xmm10,%xmm10
+    1e2f:	c4 41 20 57 db       	vxorps %xmm11,%xmm11,%xmm11
+    1e34:	c5 7a 10 05 f0 12 00 	vmovss 0x12f0(%rip),%xmm8        # 312c <_IO_stdin_used+0x12c>
+    1e3b:	00 
+    1e3c:	0f 1f 40 00          	nopl   0x0(%rax)
+        f32 x_i = p->x[i];
+    1e40:	c4 a1 7a 10 3c 81    	vmovss (%rcx,%r8,4),%xmm7
+        for (u64 j = 0; j < n; j++)
+    1e46:	45 31 d2             	xor    %r10d,%r10d
+        f32 fz = 0.0;
+    1e49:	c5 78 29 d8          	vmovaps %xmm11,%xmm0
+        f32 fy = 0.0;
+    1e4d:	c5 78 29 da          	vmovaps %xmm11,%xmm2
+        f32 y_i = p->y[i];
+    1e51:	c4 a1 7a 10 34 86    	vmovss (%rsi,%r8,4),%xmm6
+        f32 fx = 0.0;
+    1e57:	c5 78 29 db          	vmovaps %xmm11,%xmm3
+        f32 z_i = p->z[i];
+    1e5b:	c4 a1 7a 10 2c 87    	vmovss (%rdi,%r8,4),%xmm5
+        for (u64 j = 0; j < n; j++)
+    1e61:	f6 c3 01             	test   $0x1,%bl
+    1e64:	74 7a                	je     1ee0 <move_particles._omp_fn.0+0x3a0>
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1e66:	c5 fa 10 11          	vmovss (%rcx),%xmm2
+        for (u64 j = 0; j < n; j++)
+    1e6a:	41 ba 01 00 00 00    	mov    $0x1,%r10d
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1e70:	c5 fa 10 06          	vmovss (%rsi),%xmm0
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1e74:	c5 6a 5c f7          	vsubss %xmm7,%xmm2,%xmm14
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1e78:	c5 fa 10 1f          	vmovss (%rdi),%xmm3
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1e7c:	c5 7a 5c fe          	vsubss %xmm6,%xmm0,%xmm15
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1e80:	c5 62 5c e5          	vsubss %xmm5,%xmm3,%xmm12
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1e84:	c4 c1 0a 59 ce       	vmulss %xmm14,%xmm14,%xmm1
+    1e89:	c4 41 02 59 ef       	vmulss %xmm15,%xmm15,%xmm13
+    1e8e:	c4 c1 1a 59 c4       	vmulss %xmm12,%xmm12,%xmm0
+    1e93:	c5 92 58 d1          	vaddss %xmm1,%xmm13,%xmm2
+    1e97:	c5 ea 58 d8          	vaddss %xmm0,%xmm2,%xmm3
+    1e9b:	c4 41 62 58 e9       	vaddss %xmm9,%xmm3,%xmm13
+            const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
+    1ea0:	c4 41 79 7e e9       	vmovd  %xmm13,%r9d
+    1ea5:	41 d1 f9             	sar    %r9d
+    1ea8:	c4 c1 2a 2a c9       	vcvtsi2ss %r9d,%xmm10,%xmm1
+    1ead:	c4 c1 72 59 d5       	vmulss %xmm13,%xmm1,%xmm2
+    1eb2:	c5 ba 5e c2          	vdivss %xmm2,%xmm8,%xmm0
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1eb6:	c4 41 7a 59 f6       	vmulss %xmm14,%xmm0,%xmm14
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1ebb:	c4 41 7a 59 ff       	vmulss %xmm15,%xmm0,%xmm15
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1ec0:	c4 41 7a 59 e4       	vmulss %xmm12,%xmm0,%xmm12
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1ec5:	c4 c1 22 58 de       	vaddss %xmm14,%xmm11,%xmm3
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1eca:	c4 c1 22 58 d7       	vaddss %xmm15,%xmm11,%xmm2
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1ecf:	c4 c1 22 58 c4       	vaddss %xmm12,%xmm11,%xmm0
+        for (u64 j = 0; j < n; j++)
+    1ed4:	48 83 fb 01          	cmp    $0x1,%rbx
+    1ed8:	0f 84 ee 00 00 00    	je     1fcc <move_particles._omp_fn.0+0x48c>
+    1ede:	66 90                	xchg   %ax,%ax
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1ee0:	c4 21 7a 10 2c 91    	vmovss (%rcx,%r10,4),%xmm13
+        for (u64 j = 0; j < n; j++)
+    1ee6:	4d 8d 72 01          	lea    0x1(%r10),%r14
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1eea:	c4 a1 7a 10 0c 96    	vmovss (%rsi,%r10,4),%xmm1
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1ef0:	c5 12 5c ff          	vsubss %xmm7,%xmm13,%xmm15
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1ef4:	c4 21 7a 10 24 97    	vmovss (%rdi,%r10,4),%xmm12
+        for (u64 j = 0; j < n; j++)
+    1efa:	49 83 c2 02          	add    $0x2,%r10
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1efe:	c5 72 5c f6          	vsubss %xmm6,%xmm1,%xmm14
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1f02:	c5 1a 5c ed          	vsubss %xmm5,%xmm12,%xmm13
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1f06:	c4 c1 02 59 cf       	vmulss %xmm15,%xmm15,%xmm1
+    1f0b:	c4 41 0a 59 e6       	vmulss %xmm14,%xmm14,%xmm12
+    1f10:	c5 1a 58 e1          	vaddss %xmm1,%xmm12,%xmm12
+    1f14:	c4 c1 12 59 cd       	vmulss %xmm13,%xmm13,%xmm1
+    1f19:	c5 1a 58 e1          	vaddss %xmm1,%xmm12,%xmm12
+    1f1d:	c4 41 1a 58 e1       	vaddss %xmm9,%xmm12,%xmm12
+            const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
+    1f22:	c4 41 79 7e e5       	vmovd  %xmm12,%r13d
+    1f27:	41 d1 fd             	sar    %r13d
+    1f2a:	c4 c1 2a 2a cd       	vcvtsi2ss %r13d,%xmm10,%xmm1
+    1f2f:	c4 41 72 59 e4       	vmulss %xmm12,%xmm1,%xmm12
+    1f34:	c4 c1 3a 5e cc       	vdivss %xmm12,%xmm8,%xmm1
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1f39:	c4 21 7a 10 24 b6    	vmovss (%rsi,%r14,4),%xmm12
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1f3f:	c4 41 72 59 ed       	vmulss %xmm13,%xmm1,%xmm13
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1f44:	c4 41 72 59 ff       	vmulss %xmm15,%xmm1,%xmm15
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1f49:	c4 41 72 59 f6       	vmulss %xmm14,%xmm1,%xmm14
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1f4e:	c4 c1 7a 58 cd       	vaddss %xmm13,%xmm0,%xmm1
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1f53:	c4 a1 7a 10 04 b1    	vmovss (%rcx,%r14,4),%xmm0
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1f59:	c4 c1 62 58 df       	vaddss %xmm15,%xmm3,%xmm3
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1f5e:	c4 21 7a 10 2c b7    	vmovss (%rdi,%r14,4),%xmm13
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1f64:	c4 c1 6a 58 d6       	vaddss %xmm14,%xmm2,%xmm2
+            const f32 dx = p->x[j] - x_i; // 1 (sub)
+    1f69:	c5 7a 5c ff          	vsubss %xmm7,%xmm0,%xmm15
+            const f32 dy = p->y[j] - y_i; // 2 (sub)
+    1f6d:	c5 1a 5c f6          	vsubss %xmm6,%xmm12,%xmm14
+            const f32 dz = p->z[j] - z_i; // 3 (sub)
+    1f71:	c5 12 5c ed          	vsubss %xmm5,%xmm13,%xmm13
+            const f32 d_2 = (dx * dx) + (dy * dy) + (dz * dz) + softening; // 9 (mul, add)
+    1f75:	c4 c1 02 59 c7       	vmulss %xmm15,%xmm15,%xmm0
+    1f7a:	c4 41 0a 59 e6       	vmulss %xmm14,%xmm14,%xmm12
+    1f7f:	c5 1a 58 e0          	vaddss %xmm0,%xmm12,%xmm12
+    1f83:	c4 c1 12 59 c5       	vmulss %xmm13,%xmm13,%xmm0
+    1f88:	c5 1a 58 e0          	vaddss %xmm0,%xmm12,%xmm12
+    1f8c:	c4 41 1a 58 e1       	vaddss %xmm9,%xmm12,%xmm12
+            const f32 d_3_over_2 = 1 / (d_2 * (f32)(*(int *)&d_2 >> 1)); // 11 (pow, div)
+    1f91:	c5 79 7e e0          	vmovd  %xmm12,%eax
+    1f95:	d1 f8                	sar    %eax
+    1f97:	c5 aa 2a c0          	vcvtsi2ss %eax,%xmm10,%xmm0
+    1f9b:	c4 41 7a 59 e4       	vmulss %xmm12,%xmm0,%xmm12
+    1fa0:	c4 c1 3a 5e c4       	vdivss %xmm12,%xmm8,%xmm0
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1fa5:	c4 41 7a 59 ff       	vmulss %xmm15,%xmm0,%xmm15
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1faa:	c4 41 7a 59 f6       	vmulss %xmm14,%xmm0,%xmm14
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1faf:	c4 41 7a 59 ed       	vmulss %xmm13,%xmm0,%xmm13
+            fx += dx * d_3_over_2; // 13 (add, div)
+    1fb4:	c4 c1 62 58 df       	vaddss %xmm15,%xmm3,%xmm3
+            fy += dy * d_3_over_2; // 15 (add, div)
+    1fb9:	c4 c1 6a 58 d6       	vaddss %xmm14,%xmm2,%xmm2
+            fz += dz * d_3_over_2; // 17 (add, div)
+    1fbe:	c4 c1 72 58 c5       	vaddss %xmm13,%xmm1,%xmm0
+        for (u64 j = 0; j < n; j++)
+    1fc3:	4c 39 d3             	cmp    %r10,%rbx
+    1fc6:	0f 85 14 ff ff ff    	jne    1ee0 <move_particles._omp_fn.0+0x3a0>
+        p->vx[i] += dt * fx; // 19 (mul, add)
+    1fcc:	c5 da 59 fb          	vmulss %xmm3,%xmm4,%xmm7
+    1fd0:	c4 81 42 58 34 83    	vaddss (%r11,%r8,4),%xmm7,%xmm6
+        p->vy[i] += dt * fy; // 21 (mul, add)
+    1fd6:	c5 da 59 ea          	vmulss %xmm2,%xmm4,%xmm5
+        p->vz[i] += dt * fz; // 23 (mul, add)
+    1fda:	c5 da 59 d0          	vmulss %xmm0,%xmm4,%xmm2
+        p->vx[i] += dt * fx; // 19 (mul, add)
+    1fde:	c4 81 7a 11 34 83    	vmovss %xmm6,(%r11,%r8,4)
+        p->vy[i] += dt * fy; // 21 (mul, add)
+    1fe4:	c4 a1 52 58 5c 85 00 	vaddss 0x0(%rbp,%r8,4),%xmm5,%xmm3
+    1feb:	c4 a1 7a 11 5c 85 00 	vmovss %xmm3,0x0(%rbp,%r8,4)
+        p->vz[i] += dt * fz; // 23 (mul, add)
+    1ff2:	c4 81 6a 58 0c 84    	vaddss (%r12,%r8,4),%xmm2,%xmm1
+    1ff8:	c4 81 7a 11 0c 84    	vmovss %xmm1,(%r12,%r8,4)
+    1ffe:	49 83 c0 01          	add    $0x1,%r8
+    2002:	4d 39 c7             	cmp    %r8,%r15
+    2005:	0f 87 35 fe ff ff    	ja     1e40 <move_particles._omp_fn.0+0x300>
+#pragma omp parallel for simd
+    200b:	48 83 c4 38          	add    $0x38,%rsp
+    200f:	5b                   	pop    %rbx
+    2010:	5d                   	pop    %rbp
+    2011:	41 5c                	pop    %r12
+    2013:	41 5d                	pop    %r13
+    2015:	41 5e                	pop    %r14
+    2017:	41 5f                	pop    %r15
+    2019:	c3                   	ret
+    201a:	48 83 c0 01          	add    $0x1,%rax
+    201e:	31 d2                	xor    %edx,%edx
+    2020:	e9 60 fb ff ff       	jmp    1b85 <move_particles._omp_fn.0+0x45>
+    2025:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    202c:	00 00 00 00 
+
+0000000000002030 <init>:
+{
+    2030:	f3 0f 1e fa          	endbr64
+    2034:	41 55                	push   %r13
+    p->x = malloc(sizeof(f32) * n);
+    2036:	4c 8d 2c b5 00 00 00 	lea    0x0(,%rsi,4),%r13
+    203d:	00 
+{
+    203e:	41 54                	push   %r12
+    2040:	49 89 f4             	mov    %rsi,%r12
+    2043:	55                   	push   %rbp
+    2044:	48 89 fd             	mov    %rdi,%rbp
+    p->x = malloc(sizeof(f32) * n);
+    2047:	4c 89 ef             	mov    %r13,%rdi
+{
+    204a:	53                   	push   %rbx
+    204b:	48 83 ec 18          	sub    $0x18,%rsp
+    p->x = malloc(sizeof(f32) * n);
+    204f:	e8 2c f1 ff ff       	call   1180 <malloc@plt>
+    p->y = malloc(sizeof(f32) * n);
+    2054:	4c 89 ef             	mov    %r13,%rdi
+    p->x = malloc(sizeof(f32) * n);
+    2057:	48 89 45 00          	mov    %rax,0x0(%rbp)
+    p->y = malloc(sizeof(f32) * n);
+    205b:	e8 20 f1 ff ff       	call   1180 <malloc@plt>
+    p->z = malloc(sizeof(f32) * n);
+    2060:	4c 89 ef             	mov    %r13,%rdi
+    p->y = malloc(sizeof(f32) * n);
+    2063:	48 89 45 08          	mov    %rax,0x8(%rbp)
+    p->z = malloc(sizeof(f32) * n);
+    2067:	e8 14 f1 ff ff       	call   1180 <malloc@plt>
+    p->vx = malloc(sizeof(f32) * n);
+    206c:	4c 89 ef             	mov    %r13,%rdi
+    p->z = malloc(sizeof(f32) * n);
+    206f:	48 89 45 10          	mov    %rax,0x10(%rbp)
+    p->vx = malloc(sizeof(f32) * n);
+    2073:	e8 08 f1 ff ff       	call   1180 <malloc@plt>
+    p->vy = malloc(sizeof(f32) * n);
+    2078:	4c 89 ef             	mov    %r13,%rdi
+    p->vx = malloc(sizeof(f32) * n);
+    207b:	48 89 45 18          	mov    %rax,0x18(%rbp)
+    p->vy = malloc(sizeof(f32) * n);
+    207f:	e8 fc f0 ff ff       	call   1180 <malloc@plt>
+    p->vz = malloc(sizeof(f32) * n);
+    2084:	4c 89 ef             	mov    %r13,%rdi
+    p->vy = malloc(sizeof(f32) * n);
+    2087:	48 89 45 20          	mov    %rax,0x20(%rbp)
+    p->vz = malloc(sizeof(f32) * n);
+    208b:	e8 f0 f0 ff ff       	call   1180 <malloc@plt>
+    2090:	48 89 45 28          	mov    %rax,0x28(%rbp)
+    for (u64 i = 0; i < n; i++)
+    2094:	4d 85 e4             	test   %r12,%r12
+    2097:	0f 84 fe 00 00 00    	je     219b <init+0x16b>
+    209d:	31 db                	xor    %ebx,%ebx
+    209f:	90                   	nop
+        u64 r1 = (u64)rand();
+    20a0:	e8 2b f1 ff ff       	call   11d0 <rand@plt>
+    20a5:	4c 63 e8             	movslq %eax,%r13
+        u64 r2 = (u64)rand();
+    20a8:	e8 23 f1 ff ff       	call   11d0 <rand@plt>
+        f32 sign = (r1 > r2) ? 1 : -1;
+    20ad:	c7 44 24 0c 00 00 80 	movl   $0x3f800000,0xc(%rsp)
+    20b4:	3f 
+        u64 r2 = (u64)rand();
+    20b5:	48 98                	cltq
+        f32 sign = (r1 > r2) ? 1 : -1;
+    20b7:	49 39 c5             	cmp    %rax,%r13
+    20ba:	77 08                	ja     20c4 <init+0x94>
+    20bc:	c7 44 24 0c 00 00 80 	movl   $0xbf800000,0xc(%rsp)
+    20c3:	bf 
+        p->x[i] = sign * (f32)rand() / (f32)RAND_MAX;
+    20c4:	e8 07 f1 ff ff       	call   11d0 <rand@plt>
+    20c9:	48 8b 55 00          	mov    0x0(%rbp),%rdx
+    20cd:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+    20d1:	c5 f2 2a c0          	vcvtsi2ss %eax,%xmm1,%xmm0
+    20d5:	c5 fa 59 54 24 0c    	vmulss 0xc(%rsp),%xmm0,%xmm2
+    20db:	c5 ea 59 1d 4d 10 00 	vmulss 0x104d(%rip),%xmm2,%xmm3        # 3130 <_IO_stdin_used+0x130>
+    20e2:	00 
+    20e3:	c5 fa 11 1c 9a       	vmovss %xmm3,(%rdx,%rbx,4)
+        p->y[i] = (f32)rand() / (f32)RAND_MAX;
+    20e8:	e8 e3 f0 ff ff       	call   11d0 <rand@plt>
+    20ed:	c5 d8 57 e4          	vxorps %xmm4,%xmm4,%xmm4
+    20f1:	48 8b 4d 08          	mov    0x8(%rbp),%rcx
+    20f5:	c5 da 2a e8          	vcvtsi2ss %eax,%xmm4,%xmm5
+    20f9:	c5 d2 59 35 2f 10 00 	vmulss 0x102f(%rip),%xmm5,%xmm6        # 3130 <_IO_stdin_used+0x130>
+    2100:	00 
+    2101:	c5 fa 11 34 99       	vmovss %xmm6,(%rcx,%rbx,4)
+        p->z[i] = sign * (f32)rand() / (f32)RAND_MAX;
+    2106:	e8 c5 f0 ff ff       	call   11d0 <rand@plt>
+    210b:	48 8b 75 10          	mov    0x10(%rbp),%rsi
+    210f:	c5 c0 57 ff          	vxorps %xmm7,%xmm7,%xmm7
+    2113:	c5 42 2a c0          	vcvtsi2ss %eax,%xmm7,%xmm8
+    2117:	c5 3a 59 4c 24 0c    	vmulss 0xc(%rsp),%xmm8,%xmm9
+    211d:	c5 32 59 15 0b 10 00 	vmulss 0x100b(%rip),%xmm9,%xmm10        # 3130 <_IO_stdin_used+0x130>
+    2124:	00 
+    2125:	c5 7a 11 14 9e       	vmovss %xmm10,(%rsi,%rbx,4)
+        p->vx[i] = (f32)rand() / (f32)RAND_MAX;
+    212a:	e8 a1 f0 ff ff       	call   11d0 <rand@plt>
+    212f:	48 8b 7d 18          	mov    0x18(%rbp),%rdi
+    2133:	c4 41 20 57 db       	vxorps %xmm11,%xmm11,%xmm11
+    2138:	c5 22 2a e0          	vcvtsi2ss %eax,%xmm11,%xmm12
+    213c:	c5 1a 59 2d ec 0f 00 	vmulss 0xfec(%rip),%xmm12,%xmm13        # 3130 <_IO_stdin_used+0x130>
+    2143:	00 
+    2144:	c5 7a 11 2c 9f       	vmovss %xmm13,(%rdi,%rbx,4)
+        p->vy[i] = sign * (f32)rand() / (f32)RAND_MAX;
+    2149:	e8 82 f0 ff ff       	call   11d0 <rand@plt>
+    214e:	4c 8b 45 20          	mov    0x20(%rbp),%r8
+    2152:	c4 41 08 57 f6       	vxorps %xmm14,%xmm14,%xmm14
+    2157:	c5 0a 2a f8          	vcvtsi2ss %eax,%xmm14,%xmm15
+    215b:	c5 82 59 4c 24 0c    	vmulss 0xc(%rsp),%xmm15,%xmm1
+    2161:	c5 f2 59 05 c7 0f 00 	vmulss 0xfc7(%rip),%xmm1,%xmm0        # 3130 <_IO_stdin_used+0x130>
+    2168:	00 
+    2169:	c4 c1 7a 11 04 98    	vmovss %xmm0,(%r8,%rbx,4)
+        p->vz[i] = (f32)rand() / (f32)RAND_MAX;
+    216f:	e8 5c f0 ff ff       	call   11d0 <rand@plt>
+    2174:	4c 8b 4d 28          	mov    0x28(%rbp),%r9
+    2178:	c5 e8 57 d2          	vxorps %xmm2,%xmm2,%xmm2
+    217c:	c5 ea 2a d8          	vcvtsi2ss %eax,%xmm2,%xmm3
+    2180:	c5 e2 59 25 a8 0f 00 	vmulss 0xfa8(%rip),%xmm3,%xmm4        # 3130 <_IO_stdin_used+0x130>
+    2187:	00 
+    2188:	c4 c1 7a 11 24 99    	vmovss %xmm4,(%r9,%rbx,4)
+    for (u64 i = 0; i < n; i++)
+    218e:	48 83 c3 01          	add    $0x1,%rbx
+    2192:	49 39 dc             	cmp    %rbx,%r12
+    2195:	0f 85 05 ff ff ff    	jne    20a0 <init+0x70>
+}
+    219b:	48 83 c4 18          	add    $0x18,%rsp
+    219f:	5b                   	pop    %rbx
+    21a0:	5d                   	pop    %rbp
+    21a1:	41 5c                	pop    %r12
+    21a3:	41 5d                	pop    %r13
+    21a5:	c3                   	ret
+    21a6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    21ad:	00 00 00 
+
+00000000000021b0 <delete_particule_table>:
+{
+    21b0:	f3 0f 1e fa          	endbr64
+    21b4:	53                   	push   %rbx
+    21b5:	48 89 fb             	mov    %rdi,%rbx
+    free(p->x);
+    21b8:	48 8b 3f             	mov    (%rdi),%rdi
+    21bb:	e8 50 ef ff ff       	call   1110 <free@plt>
+    free(p->y);
+    21c0:	48 8b 7b 08          	mov    0x8(%rbx),%rdi
+    21c4:	e8 47 ef ff ff       	call   1110 <free@plt>
+    free(p->z);
+    21c9:	48 8b 7b 10          	mov    0x10(%rbx),%rdi
+    21cd:	e8 3e ef ff ff       	call   1110 <free@plt>
+    free(p->vx);
+    21d2:	48 8b 7b 18          	mov    0x18(%rbx),%rdi
+    21d6:	e8 35 ef ff ff       	call   1110 <free@plt>
+    free(p->vy);
+    21db:	48 8b 7b 20          	mov    0x20(%rbx),%rdi
+    21df:	e8 2c ef ff ff       	call   1110 <free@plt>
+    free(p->vz);
+    21e4:	48 8b 7b 28          	mov    0x28(%rbx),%rdi
+}
+    21e8:	5b                   	pop    %rbx
+    free(p->vz);
+    21e9:	e9 22 ef ff ff       	jmp    1110 <free@plt>
+    21ee:	66 90                	xchg   %ax,%ax
+
+00000000000021f0 <move_particles>:
+{
+    21f0:	f3 0f 1e fa          	endbr64
+    21f4:	41 54                	push   %r12
+    21f6:	31 c9                	xor    %ecx,%ecx
+    21f8:	31 d2                	xor    %edx,%edx
+    21fa:	55                   	push   %rbp
+    21fb:	48 89 f5             	mov    %rsi,%rbp
+    21fe:	53                   	push   %rbx
+    21ff:	48 89 fb             	mov    %rdi,%rbx
+    2202:	48 83 ec 30          	sub    $0x30,%rsp
+    2206:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    220d:	00 00 
+    220f:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+    2214:	31 c0                	xor    %eax,%eax
+    const f32 softening = 1e-20;
+    2216:	4c 8d 64 24 10       	lea    0x10(%rsp),%r12
+#pragma omp parallel for simd
+    221b:	48 89 74 24 18       	mov    %rsi,0x18(%rsp)
+    2220:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+    2225:	48 8d 3d 14 f9 ff ff 	lea    -0x6ec(%rip),%rdi        # 1b40 <move_particles._omp_fn.0>
+    222c:	4c 89 e6             	mov    %r12,%rsi
+    222f:	c5 fa 11 44 24 20    	vmovss %xmm0,0x20(%rsp)
+    2235:	c5 fa 11 44 24 0c    	vmovss %xmm0,0xc(%rsp)
+    223b:	e8 80 ef ff ff       	call   11c0 <GOMP_parallel@plt>
+#pragma omp parallel for simd
+    2240:	c5 fa 10 44 24 0c    	vmovss 0xc(%rsp),%xmm0
+    2246:	31 c9                	xor    %ecx,%ecx
+    2248:	31 d2                	xor    %edx,%edx
+    224a:	48 8d 3d cf f3 ff ff 	lea    -0xc31(%rip),%rdi        # 1620 <move_particles._omp_fn.1>
+    2251:	4c 89 e6             	mov    %r12,%rsi
+    2254:	48 89 6c 24 18       	mov    %rbp,0x18(%rsp)
+    2259:	c5 fa 11 44 24 20    	vmovss %xmm0,0x20(%rsp)
+    225f:	48 89 5c 24 10       	mov    %rbx,0x10(%rsp)
+    2264:	e8 57 ef ff ff       	call   11c0 <GOMP_parallel@plt>
+}
+    2269:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+    226e:	64 48 33 04 25 28 00 	xor    %fs:0x28,%rax
+    2275:	00 00 
+    2277:	75 09                	jne    2282 <move_particles+0x92>
+    2279:	48 83 c4 30          	add    $0x30,%rsp
+    227d:	5b                   	pop    %rbx
+    227e:	5d                   	pop    %rbp
+    227f:	41 5c                	pop    %r12
+    2281:	c3                   	ret
+    2282:	e8 c9 ee ff ff       	call   1150 <__stack_chk_fail@plt>
+    2287:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    228e:	00 00 
+
+0000000000002290 <__libc_csu_init>:
+    2290:	f3 0f 1e fa          	endbr64
+    2294:	41 57                	push   %r15
+    2296:	4c 8d 3d 9b 2a 00 00 	lea    0x2a9b(%rip),%r15        # 4d38 <__frame_dummy_init_array_entry>
+    229d:	41 56                	push   %r14
+    229f:	49 89 d6             	mov    %rdx,%r14
+    22a2:	41 55                	push   %r13
+    22a4:	49 89 f5             	mov    %rsi,%r13
+    22a7:	41 54                	push   %r12
+    22a9:	41 89 fc             	mov    %edi,%r12d
+    22ac:	55                   	push   %rbp
+    22ad:	48 8d 2d 8c 2a 00 00 	lea    0x2a8c(%rip),%rbp        # 4d40 <__do_global_dtors_aux_fini_array_entry>
+    22b4:	53                   	push   %rbx
+    22b5:	4c 29 fd             	sub    %r15,%rbp
+    22b8:	48 83 ec 08          	sub    $0x8,%rsp
+    22bc:	e8 3f ed ff ff       	call   1000 <_init>
+    22c1:	48 c1 fd 03          	sar    $0x3,%rbp
+    22c5:	74 1f                	je     22e6 <__libc_csu_init+0x56>
+    22c7:	31 db                	xor    %ebx,%ebx
+    22c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    22d0:	4c 89 f2             	mov    %r14,%rdx
+    22d3:	4c 89 ee             	mov    %r13,%rsi
+    22d6:	44 89 e7             	mov    %r12d,%edi
+    22d9:	41 ff 14 df          	call   *(%r15,%rbx,8)
+    22dd:	48 83 c3 01          	add    $0x1,%rbx
+    22e1:	48 39 dd             	cmp    %rbx,%rbp
+    22e4:	75 ea                	jne    22d0 <__libc_csu_init+0x40>
+    22e6:	48 83 c4 08          	add    $0x8,%rsp
+    22ea:	5b                   	pop    %rbx
+    22eb:	5d                   	pop    %rbp
+    22ec:	41 5c                	pop    %r12
+    22ee:	41 5d                	pop    %r13
+    22f0:	41 5e                	pop    %r14
+    22f2:	41 5f                	pop    %r15
+    22f4:	c3                   	ret
+    22f5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    22fc:	00 00 00 00 
+
+0000000000002300 <__libc_csu_fini>:
+    2300:	f3 0f 1e fa          	endbr64
+    2304:	c3                   	ret
+
+Disassembly of section .fini:
+
+0000000000002308 <_fini>:
+    2308:	f3 0f 1e fa          	endbr64
+    230c:	48 83 ec 08          	sub    $0x8,%rsp
+    2310:	48 83 c4 08          	add    $0x8,%rsp
+    2314:	c3                   	ret
