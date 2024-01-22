@@ -26,4 +26,4 @@ nbody3D: nbody.c nbody2.c nbody3.c nbody4.c nbody5.c nbody6.c
 	# $(CC) $(CFLAGS) $(OFLAGS) nbody6.c -o bin/nbody6 -lm
 
 clean:
-	rm -Rf *~ nbody3D *.optrpt bin/*
+	rm -Rf *~ nbody3D *.optrpt bin/* data/*

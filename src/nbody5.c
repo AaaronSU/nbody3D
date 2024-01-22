@@ -211,7 +211,7 @@ int main(int argc, char **argv)
     const f32 dt = 0.01;
 
     //
-    f64 rate = 0.0, drate = 0.0;
+    f64 rate = 0.0, drate = 0.0, drate_ref = 0.0;
     f64 rate_ref = 0.0;
     f64 speed_up = 0.0;
 
@@ -284,6 +284,7 @@ int main(int argc, char **argv)
         if (i >= warmup)
         {
             rate_ref += h2 / (f32)(end_ref - start_ref);
+            drate_ref += (h2 * h2) / (f32)((end - start) * (end - start));
         }
         printf("%5llu %10.3e %10.3e %8.1f %s\n",
                i,
@@ -295,6 +296,13 @@ int main(int argc, char **argv)
         fflush(stdout);
     }
     rate_ref /= (f64)(steps - warmup);
+    // Deviation in GFLOPs/s
+    drate_ref = sqrt(drate_ref / (f64)(steps - warmup) - (rate_ref * rate_ref));
+
+    printf("-----------------------------------------------------\n");
+    printf("\033[1m%s %4s \033[42m%10.1lf +- %.1lf GFLOP/s\033[0m\n",
+           "Average performance:", "", rate_ref, drate_ref);
+    printf("-----------------------------------------------------\n");
 
     delta d = compute_delta(&p_ref, &p, n);
     speed_up = rate / rate_ref;
