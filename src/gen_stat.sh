@@ -32,7 +32,7 @@ cat data/seq_clang_Ofast_nbody
 
 
 echo "gcc_o2"
-gcc $GCC_CFLAGS -O2 nbody5.c -o bin/gcc_O2_nbody -lm && bin/gcc_O2_nbody > data/seqpar_gcc_O2_nbody
+gcc $GCC_CFLAGS -O2 nbody5.c -o bin/gcc_O2_nbody -lm && bin/gcc_O2_nbody > data/par_gcc_O2_nbody
 cat data/par_gcc_O2_nbody
 
 echo "gcc_o3"
