@@ -284,7 +284,7 @@ int main(int argc, char **argv)
         if (i >= warmup)
         {
             rate_ref += h2 / (f32)(end_ref - start_ref);
-            drate_ref += (h2 * h2) / (f32)((end - start) * (end - start));
+            drate_ref += (h2 * h2) / (f32)((end_ref - start_ref) * (end_ref - start_ref));
         }
         printf("%5llu %10.3e %10.3e %8.1f %s\n",
                i,
